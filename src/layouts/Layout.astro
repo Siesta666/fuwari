@@ -103,7 +103,7 @@ const bannerOffset =
 		<meta name="generator" content={Astro.generator} />
 		{favicons.map(favicon => (
 			<link rel="icon"
-				  href={favicon.src.startsWith('/') ? url(favicon.src) : favicon.src}
+				  href={url(favicon.src.startsWith('/') ? favicon.src : `/${favicon.src}`)}
 				  sizes={favicon.sizes}
 				  media={favicon.theme && `(prefers-color-scheme: ${favicon.theme})`}
 			/>

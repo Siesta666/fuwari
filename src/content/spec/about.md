@@ -1,9 +1,18 @@
 # About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
 
-::github{repo="saicaca/fuwari"}
+<font size = '4'>This is a static website built by Siesta. And I will post some blogs concerning my daily life and technical problems.</font>
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+## Who am I
+
+<font size = '4'>I am an undergraduate majoring in Physics in the School of Physics and Astronomy in SJTU.
+
+Besides Physics, I have an great interest in the Internet technologies.
+
+That's why the web is here.</font>
+
+## Some Information
+
+<font size = '4'>Here is my mail: <a href = "mailto:bwz1169391936@sjtu.edu.cn">bwz1169391936@sjtu.edu.cn</a></font> 
+
+
+<font size = '4'>Here is my QQ: 1169391936 </font>

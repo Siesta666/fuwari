@@ -21,7 +21,7 @@ export const siteConfig: SiteConfig = {
 		position: "top", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: false, // Display the credit text of the banner image
-			text: "", // Credit text to be displayed
+			text: "Welcome", // Credit text to be displayed
 			url: "", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		{
-			src:'favicon/preview.jpg',
+			src: '/favicon/preview.jpg',
 			// theme: 'light',
 			sizes: '128x128',
 		}
