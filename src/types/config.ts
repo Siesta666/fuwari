@@ -36,6 +36,7 @@ export type SiteConfig = {
 	};
 
 	favicon: Favicon[];
+	siteStartDate?: string;
 };
 
 export type Favicon = {
@@ -99,4 +100,11 @@ export type BlogPostData = {
 
 export type ExpressiveCodeConfig = {
 	theme: string;
+};
+
+export type Friend = {
+	name: string;
+	url: string;
+	avatar: string;
+	desc?: string;
 };

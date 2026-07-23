@@ -1,5 +1,6 @@
 import type {
 	ExpressiveCodeConfig,
+	Friend,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
@@ -42,6 +43,7 @@ export const siteConfig: SiteConfig = {
 		//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
 		// }
 	],
+	siteStartDate: '2026-07-20',
 };
 
 export const navBarConfig: NavBarConfig = {
@@ -50,8 +52,12 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
+			name: "友链",
+			url: "/friends/",
+		},
+		{
 			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
+			url: "https://github.com/Siesta666/fuwari", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
 		},
 	],
@@ -70,7 +76,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/saicaca/fuwari",
+			url: "https://github.com/Siesta666/fuwari",
 		},
 	],
 };
@@ -86,3 +92,18 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
 };
+
+export const friendsConfig: Friend[] = [
+	{
+		name: "Astro 官方网站",
+		url: "https://astro.build",
+		avatar: "https://astro.build/favicon.svg",
+		desc: "新一代极速静态站点生成框架",
+	},
+	{
+		name: "Fuwari 主题",
+		url: "https://github.com/Siesta666/fuwari",
+		avatar: "https://github.com/Siesta666.png",
+		desc: "基于 Astro 打造的精美个人博客主题",
+	},
+];

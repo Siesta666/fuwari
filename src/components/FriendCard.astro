@@ -1,0 +1,49 @@
+---
+import type { Friend } from "../types/config";
+
+interface Props {
+	friend: Friend;
+}
+
+const { friend } = Astro.props;
+---
+
+<a
+	href={friend.url}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="group relative flex items-center gap-4 p-4 rounded-xl bg-[var(--card-bg)] border border-black/5 dark:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--primary)]/50 overflow-hidden no-underline"
+>
+	<!-- 头像 -->
+	<div class="relative shrink-0 w-14 h-14 rounded-full overflow-hidden bg-black/5 dark:bg-white/10 flex items-center justify-center">
+		<img
+			src={friend.avatar}
+			alt={friend.name}
+			class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+			onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+		/>
+		<!-- 头像不存在时的 fallback 占位字符 -->
+		<div class="hidden w-full h-full items-center justify-center font-bold text-lg text-[var(--primary)]">
+			{friend.name.charAt(0)}
+		</div>
+	</div>
+
+	<!-- 文本内容 -->
+	<div class="flex flex-col min-w-0 flex-1">
+		<div class="font-bold text-base text-black/85 dark:text-white/85 group-hover:text-[var(--primary)] transition-colors truncate">
+			{friend.name}
+		</div>
+		<div class="text-xs text-black/50 dark:text-white/50 mt-1 line-clamp-2 leading-relaxed">
+			{friend.desc || "暂无简介"}
+		</div>
+	</div>
+
+	<!-- 外链微小图标装饰 -->
+	<div class="absolute top-3 right-3 text-black/20 dark:text-white/20 group-hover:text-[var(--primary)] transition-colors opacity-0 group-hover:opacity-100">
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+			<polyline points="15 3 21 3 21 9"></polyline>
+			<line x1="10" y1="14" x2="21" y2="3"></line>
+		</svg>
+	</div>
+</a>

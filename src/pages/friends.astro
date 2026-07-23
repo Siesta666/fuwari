@@ -1,0 +1,50 @@
+---
+import FriendCard from "@components/FriendCard.astro";
+import Markdown from "@components/misc/Markdown.astro";
+import { friendsConfig, profileConfig, siteConfig } from "@/config";
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+---
+
+<MainGridLayout title="友链" description="友情链接">
+	<div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+		<div class="card-base z-10 px-6 md:px-9 py-6 relative w-full">
+			<Markdown class="mt-2">
+				<h1 class="text-2xl font-bold mb-3 flex items-center gap-2">
+					<span>🤝</span> 友情链接
+				</h1>
+				<p class="text-sm text-black/60 dark:text-white/60 mb-6">
+					欢迎来到我的友链页面！这里聚集了许多优秀的朋友与站点。
+				</p>
+
+				<!-- 友链卡片网格 -->
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
+					{friendsConfig.map((friend) => (
+						<FriendCard friend={friend} />
+					))}
+				</div>
+
+				<!-- 申请友链说明区 -->
+				<div class="mt-10 pt-6 border-t border-black/10 dark:border-white/10">
+					<h2 class="text-xl font-bold mb-3 flex items-center gap-2">
+						<span>📬</span> 申请友链
+					</h2>
+					<p class="text-sm text-black/70 dark:text-white/70 mb-4">
+						如果您也想与本站交换友链，欢迎按照以下格式在评论区或通过邮箱联系我：
+					</p>
+
+					<!-- 本站信息面板 -->
+					<div class="p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-mono space-y-1 my-4 not-prose">
+						<div><span class="text-[var(--primary)] font-bold">名称：</span>{siteConfig.title}</div>
+						<div><span class="text-[var(--primary)] font-bold">简介：</span>{siteConfig.subtitle || profileConfig.bio || "分享技术与生活"}</div>
+						<div><span class="text-[var(--primary)] font-bold">链接：</span>{Astro.site || "https://fuwari.bianwenzhao.workers.dev/"}</div>
+						<div><span class="text-[var(--primary)] font-bold">图标：</span>{Astro.site ? `${Astro.site}favicon/preview.jpg` : "https://fuwari.bianwenzhao.workers.dev/favicon/preview.jpg"}</div>
+					</div>
+
+					<blockquote class="text-xs text-black/60 dark:text-white/60">
+						💡 申请前请先将本站添加至您的友链中，网站内容需健康合规哦！
+					</blockquote>
+				</div>
+			</Markdown>
+		</div>
+	</div>
+</MainGridLayout>
