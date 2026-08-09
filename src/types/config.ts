@@ -78,6 +78,11 @@ export type LicenseConfig = {
 	url: string;
 };
 
+export type CounterConfig = {
+	enable: boolean;
+	apiUrl: string;
+};
+
 export type LIGHT_DARK_MODE =
 	| typeof LIGHT_MODE
 	| typeof DARK_MODE

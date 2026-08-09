@@ -1,10 +1,12 @@
 ---
 
-import { profileConfig, siteConfig } from "../config";
+import { counterConfig, profileConfig, siteConfig } from "../config";
 import { url } from "../utils/url-utils";
 
 const currentYear = new Date().getFullYear();
 const siteStartDate = siteConfig.siteStartDate || "2024-01-01";
+const counterApiUrl = counterConfig.apiUrl;
+const counterEnabled = counterConfig.enable;
 ---
 
 <!--<div class="border-t border-[var(--primary)] mx-16 border-dashed py-8 max-w-[var(--page-width)] flex flex-col items-center justify-center px-6">-->
@@ -16,10 +18,16 @@ const siteStartDate = siteConfig.siteStartDate || "2024-01-01";
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('rss.xml')}>RSS</a> /
         <a class="transition link text-[var(--primary)] font-medium" target="_blank" href={url('sitemap-index.xml')}>Sitemap</a>
 
-        <!-- 运行时间 -->
+        <!-- 运行时间 / 访客统计 -->
         <div class="text-xs text-black/60 dark:text-white/60 my-1.5 flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
             <span id="runtime-container" class="inline-flex items-center">
                 已运行 <span id="running-time" class="font-medium text-[var(--primary)] ml-1">--</span>
+            </span>
+            <span data-uv-row class="hidden inline-flex items-center">
+                今日访客 <span data-today-uv class="font-medium text-[var(--primary)] ml-1">--</span>
+            </span>
+            <span data-uv-row class="hidden inline-flex items-center">
+                总访客 <span data-total-uv class="font-medium text-[var(--primary)] ml-1">--</span>
             </span>
         </div>
 
@@ -31,7 +39,7 @@ const siteStartDate = siteConfig.siteStartDate || "2024-01-01";
     </div>
 </div>
 
-<script define:vars={{ siteStartDate }}>
+<script define:vars={{ siteStartDate, counterApiUrl, counterEnabled }}>
 function updateRunningTime() {
     const startDate = new Date(siteStartDate);
     const now = new Date();
@@ -50,9 +58,69 @@ function updateRunningTime() {
     }
 }
 
+function getVisitorId() {
+    let id = localStorage.getItem("fuwari_visitor_id");
+    if (!id) {
+        id = (crypto.randomUUID && crypto.randomUUID()) ||
+            `visitor-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        localStorage.setItem("fuwari_visitor_id", id);
+    }
+    return id;
+}
+
+async function reportVisit() {
+    if (!counterEnabled || !counterApiUrl) return;
+    const today = new Date().toISOString().slice(0, 10);
+    const flag = `fuwari_counted_${today}`;
+    if (localStorage.getItem(flag)) return;
+
+    // 先标记，失败再回滚，避免每次刷新都重复上报
+    localStorage.setItem(flag, "1");
+    try {
+        const res = await fetch(counterApiUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: getVisitorId() }),
+        });
+        if (!res.ok) {
+            localStorage.removeItem(flag);
+        }
+    } catch (error) {
+        localStorage.removeItem(flag);
+    }
+}
+
+async function loadCounts() {
+    if (!counterEnabled || !counterApiUrl) return;
+    try {
+        const res = await fetch(counterApiUrl);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (typeof data.today_uv !== "number" || typeof data.total_uv !== "number") return;
+
+        document.querySelectorAll("[data-today-uv]").forEach(el => {
+            el.textContent = String(data.today_uv);
+        });
+        document.querySelectorAll("[data-total-uv]").forEach(el => {
+            el.textContent = String(data.total_uv);
+        });
+        document.querySelectorAll("[data-uv-row]").forEach(el => {
+            el.classList.remove("hidden");
+        });
+    } catch (error) {
+        // 统计服务不可用时保持隐藏，不影响页面
+    }
+}
+
 updateRunningTime();
 if (!window.runtimeTimer) {
     window.runtimeTimer = setInterval(updateRunningTime, 1000);
+}
+
+if (!window.fuwariCounterInitialized) {
+    window.fuwariCounterInitialized = true;
+    reportVisit();
+    loadCounts();
 }
 
 document.addEventListener('swup:page:view', () => {

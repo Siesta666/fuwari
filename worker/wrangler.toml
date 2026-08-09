@@ -1,0 +1,11 @@
+name = "fuwari-counter"
+main = "src/index.js"
+compatibility_date = "2026-08-09"
+
+# 部署前先创建数据库并把 database_id 替换成实际值：
+#   npx wrangler d1 create fuwari-counter
+[[d1_databases]]
+binding = "DB"
+database_name = "fuwari-counter"
+database_id = "c2f1eda0-0d5a-47a5-ae06-93c461421747"
+migrations_dir = "migrations"

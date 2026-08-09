@@ -1,4 +1,5 @@
 import type {
+	CounterConfig,
 	ExpressiveCodeConfig,
 	Friend,
 	LicenseConfig,
@@ -85,6 +86,12 @@ export const licenseConfig: LicenseConfig = {
 	enable: true,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+};
+
+export const counterConfig: CounterConfig = {
+	enable: true,
+	// 部署 worker/ 目录后，把这里改成你的计数器 Worker 地址
+	apiUrl: "https://fuwari-counter.bianwenzhao.workers.dev/",
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
