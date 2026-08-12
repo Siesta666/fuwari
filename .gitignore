@@ -31,3 +31,9 @@ yarn.lock
 *.iml
 
 .obsidian/
+
+# pnpm local store
+.pnpm-store/
+
+# wrangler local files
+.wrangler/
