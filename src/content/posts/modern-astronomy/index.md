@@ -6,7 +6,7 @@ image: "./cover.jpg"
 tags: 
   - Notes
   - Astronomy
-cetegory: Notes
+category: Notes
 draft: false
 lang : zh-CN
 ---

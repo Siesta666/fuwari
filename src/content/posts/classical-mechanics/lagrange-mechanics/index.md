@@ -1,11 +1,10 @@
 ---
-title: "Lagrange Mechanics"
+title: Lagrange Mechanics
 published: 2026-05-25
-description: "对于拉格朗日力学的简单介绍"
+description: 对于拉格朗日力学的简单介绍
 tags:
-  - "分析力学"
-  - "拉格朗日力学"
-category: "经典力学"
+  - 分析力学
+category: 经典力学
 lang: zh-CN
 draft: false
 ---

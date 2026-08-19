@@ -1,11 +1,10 @@
 ---
-title: "Intro"
+title: Intro
 published: 2026-05-25
-description: "电动力学中常用的数学基础：梯度、散度、旋度与曲线坐标系。"
+description: 电动力学中常用的数学基础：梯度、散度、旋度与曲线坐标系。
 tags:
-  - "数学"
-  - "矢量分析"
-category: "电动力学"
+  - 数学
+category: 电动力学
 lang: zh-CN
 draft: false
 ---
