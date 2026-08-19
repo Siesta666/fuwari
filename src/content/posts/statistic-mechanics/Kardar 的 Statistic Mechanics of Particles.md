@@ -2,7 +2,6 @@
 title: Kardar 的 Statistic Mechanics of Particles
 published: 2026-08-18
 description: Kardar的统计力学 读书笔记
-image: ./cover.jpg
 tags:
   - 统计力学
   - Notes
@@ -122,7 +121,92 @@ $$
 $$
 \text{đ}Q \leq T\mathrm{d}S\qquad \textit{when reversible takes the equal sign}
 $$
-这个结论在推导一些热力学关系的时候十分有用。于是我们还可以得到一个结论：孤立系统（$\text{đ}Q = 0$）熵不减，比如一个绝热容器中气体自由膨胀。
+这个结论在推导一些热力学关系的时候十分有用。于是我们还可以得到一个结论：孤立系统（$\text{đ}Q = 0$）熵不减，比如一个绝热容器中气体自由膨胀，其热量传递为 $\text{đ} Q = 0$，但是其熵增为$\mathrm{d}S = \nu R \ln 2$ ，于是我们可得 $\text{đ}Q \leq 0$。
 
+## 热平衡
 
+对于一个热力学系统，我们常见的判定等容孤立系统达到了热平衡的判据是熵达到了最大值$\delta S = 0$，但是如果对于一个非绝热、受到外力作用的系统，我们需要引入新的热力学势函数来表示平衡态。
+
+### 焓
+
+**焓（Enthalpy）** 用于系统绝热、且受到外力作用的情况，比如我们考虑一个弹簧连接着一个重物，我们得到弹簧的内能是 $U = \dfrac{1}{2}kx^2$ ，重物的势能是 $U_{P} = mgx$ ，我们计算得到焓 $$H = U - U_{P} = \dfrac{1}{2}kx^2 - mgx$$ 当系统达到平衡时，我们需要让焓达到极小值 $\delta H = 0$ ，此时也就是 $x = \dfrac{mg}{k}$，这与我们的期望相符合。
+
+当我们使用热力学参数重写这个过程，我们记广义力为$J_{i}$，广义坐标为$x_{i}$，由卡诺定理我们可以得到
+$$
+\text{đ}W \leq \sum J_{i} \mathrm{d} x_{i}
+$$
+由于系统绝热，所以
+$$
+\text{đ} Q = 0
+$$
+根据热力学第一定律得到：
+$$
+\mathrm{d}E = \text{đ}Q + \text{đ}W \leq \sum J_{i}\mathrm{d}x_{i}
+$$
+我们设焓为
+$$
+H = E - \sum J_{i}x_{i}
+$$
+于是我们就可以得到在绝热，外力恒定系统中：
+$$
+\delta H \leq 0
+$$
+也就是说，当系统达到平衡，需要有：
+$$
+\delta H = 0
+$$
+对应到理想气体模型中就是绝热等压系统，此时 $H = U + PV$ ，当系统达到平衡需要让焓到达极小值。
+
+为了描述系统的焓，一般我们会选择 $(S, J_{i})$ 作为变量集，我们可以表示出焓：
+$$
+\mathrm{d} H = T \mathrm{d} S - \sum x_{i} \mathrm{d}J_{i} = T\mathrm{d}S - \mathbf{x}\cdot \mathrm{d}\mathbf{J}
+$$
+### 亥姆霍兹自由能
+
+适用于等温、无机械功系统，定义 **亥姆霍兹自由能（Helmholtz free energy）** 为
+$$
+F = E - TS
+$$
+由于无机械功、等温，所以有
+$$
+\mathrm{d}T = 0 \qquad \text{đ} W = 0
+$$
+根据热力学第一定律：
+$$
+\mathrm{d}E = \text{đ}Q + \text{đ}W \le T\mathrm{d}S
+$$
+于是我们有：
+$$
+\mathrm{d}F = \mathrm{d}E - T\mathrm{d}S \leq 0 
+$$
+当系统处于热平衡，得到：
+$$
+\delta F = 0
+$$
+亥姆霍兹自由能应当取到最小值。
+
+一般我们选定 $(T, x_{i})$ 作为变量集，可以表示出亥姆霍兹自由能：
+$$
+\mathrm{d}F = -S \mathrm{d}T + \mathbf{J}\cdot \mathrm{d}\mathbf{x}
+$$
+
+### 吉布斯自由能
+
+适用于等温、有恒定外力作用的系统（等温、等压），**吉布斯自由能（Gibbs free energy）** 的定义为：
+$$
+G = H - TS
+$$
+推导方法略去和上文基本一样，我们常常使用 $(T, J_{i})$ 作为变量集，表示出吉布斯自由能：
+$$
+\mathrm{d}G = -S\mathrm{d}T - \mathbf{x}\cdot \mathrm{d}J
+$$
+对于等温、等压的系统，判定系统达到平衡，需要让吉布斯自由能取到极小值。
+
+### Summary
+
+这些热力学势其实都是熵的变体，我们使用了**勒让德变换（Legendre Transformation）** 变换了变量集，这里稍作总结：
+- 绝热、等容、使用熵$S$、变量集选择$(S, x_{i})$
+- 绝热、等压、使用焓$H$、变量集选择$(S, J_{i})$
+- 等温、等容、使用亥姆霍兹自由能$F$、变量集选择$(T,x_{i})$
+- 等温、等压、使用吉布斯自由能、变量集选择$(T,J_{i})$
 
