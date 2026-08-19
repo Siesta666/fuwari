@@ -37,3 +37,6 @@ yarn.lock
 
 # wrangler local files
 .wrangler/
+
+# EMF image files
+*.emf
