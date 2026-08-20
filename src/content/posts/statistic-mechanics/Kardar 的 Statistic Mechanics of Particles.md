@@ -409,7 +409,7 @@ $$
 - 趋向绝对零度时，热容为0   $\lim_{ T \to 0 }C_{x} = 0$
 - 在趋向绝对零度时，热膨胀系数为0   $\alpha_{J} = \dfrac{1}{x}\dfrac{ \partial x }{ \partial T }_{J} - \dfrac{1}{x}\dfrac{ \partial S }{ \partial J }_{T} = 0$
 
-## 总结 🤠
+## 总结
 
 至此我们完成了第一章的理论学习，第一章 Thermodynamics 热动力学，主要是从宏观角度来分析常见的热力学系统，并且介绍描述系统的参数和方法。
 
