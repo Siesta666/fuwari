@@ -2,6 +2,7 @@
 import path from "node:path";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
+import TOC from "@components/widget/TOC.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
@@ -96,6 +97,21 @@ const jsonLd = {
             </div>
 
             <!-- always show cover as long as it has one -->
+
+            <!-- inline table of contents for laptop-sized screens (lg to 2xl) -->
+            {siteConfig.toc.enable && headings.length > 0 &&
+                <div class="hidden lg:block 2xl:hidden mb-6 onload-animation">
+                    <div class="card-base rounded-xl p-4">
+                        <div class="flex items-center gap-2 mb-2 text-sm font-bold text-black/70 dark:text-white/70">
+                            <Icon name="material-symbols:list-rounded" class="text-[1.125rem]"></Icon>
+                            {i18n(I18nKey.toc)}
+                        </div>
+                        <div class="toc-inner-wrapper relative max-h-[60vh] overflow-y-auto hide-scrollbar pr-1">
+                            <TOC headings={headings} class="flex flex-col"></TOC>
+                        </div>
+                    </div>
+                </div>
+            }
 
             {entry.data.image &&
                 <ImageWrapper id="post-cover" src={entry.data.image} basePath={path.join("content/posts/", getDir(entry.id))} class="mb-8 rounded-xl banner-container onload-animation"/>
