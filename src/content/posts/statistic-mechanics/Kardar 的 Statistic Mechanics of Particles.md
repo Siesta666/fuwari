@@ -8,8 +8,9 @@ tags:
 category: 统计力学
 draft: false
 lang: zh-CN
+image: ./3.jpg
 ---
-# Thermodynamics 热动力学
+   # Thermodynamics 热动力学
 
 **——Thermodynamics is a phenomenological description of properties of macroscopic systems in thermal equilibrium.**
 
@@ -416,3 +417,387 @@ $$
 学习路线是：从热力学三定律引入到熵，再到热平衡中引入热力学势函数，然后计算系统平衡的稳定性，最后学习热力学第三定律为了与后续微观角度的统计力学衔接。
 
 ——Siesta 2026-08-20
+
+# Probability 概率论
+
+## 基本概念
+
+热力学基本定律是建立在对于微观粒子的观察和统计概括，另一方面，物质是由原子和分子组成的，它们的运动规律受到更加基本的定律支配，所以我们有方法可以对粒子运动进行分析。我们不需要知道系统中每一个粒子的具体情况，这基本是不可能的，我们只需要知道粒子处于某一个微观状态的 **可能性（likelihood）** 即可，因此统计力学本质上是对系统的一种**概率性描述**。
+
+概率论要研究的对象是随机变量，它有一系列可能值，可能是:
+- 离散值：比如硬币的正反两面、骰子的六个面等
+- 连续值：比如一个区间 $[1,2]$ 。
+每一个事件都是结果的子集，我们要计算事件发生的概率，将事件记为 $E$， 将概率记为 $p(E)$.
+
+事件的概率必须要满足以下条件：
+- 概率必须为正数，$p(E) \geq 0$。
+- 归一性：$\sum p(E_{i} = 1)$，所有事件的总概率必须为1
+- 可加性：如果两个事件是不相关事件，那么 $p(A \text{ or } B) = p(A) + p(B)$
+
+为了得到某一个事件的概率，有两种方法：
+- 客观概率来自对某一事件大量重复得到概率：$p(A) = \lim\limits_{ N \to \infty } \dfrac{N_{A}}{N}$
+- 主观概率提供一个基于理论的概率值，比如一个骰子投到1的概率就是 $\dfrac{1}{6}$
+给定一个随机变量 $x$ ，其可能取值为 $\mathcal{S} = {-\infty < x < + \infty}$
+- **累计概率函数（cumulative probability function）** 是随机变量取到某一个区间的概率值，可以使用积分计算得到
+- **概率密度函数（probability density function）** 是描述随机变量取到单位长度区间的概率
+- **期望值（the expectation value）** 是描述随机变量进行大量取值之后的平均值，使用 $\langle F(x) \rangle$ 表示
+如果给定一个新的随机变量，其取值与随机变量 $x$ 相关，比如 $y = x^2$ ，那么我们可以写出其概率密度函数：
+$$
+p(y)_{y =x_{0}^2} \mathrm{d}y= prob(y = x_{0} ^2) = prob(x = x_{0} \text{ or } -x_{0}) = \sum p(x)\mathrm{d}x
+$$
+我们可以得到一个新的等式：
+$$
+p(y) = \sum p(x) \left| \frac{\mathrm{d}x}{\mathrm{d}y} \right|
+$$
+**概率密度函数的矩**是随机变量的幂的期望值：
+$$
+m_{n} \equiv \langle x^n \rangle = \int \mathrm{d}xp(x)x^n
+$$
+**特征函数**是矩的生成函数，它是概率密度函数的傅里叶变换，定义为：
+$$
+\tilde{p}(k) = \langle e^{-ikx} \rangle = \int \mathrm{d}x p(x) e^{-ikx}
+$$
+概率密度函数可以通过傅里叶变换得到：
+$$
+p(x) = \frac{1}{2 \pi}\int \mathrm{d}k \tilde{p}(k) e^{+ikx}
+$$
+我们可以将 $e^{-ikx}$ 进行泰勒展开：
+$$
+e^{-ikx} = \sum_{n=0}^{\infty}  \frac{1}{n!}(-ikx)^n
+$$
+于是我们得到了 $\tilde{p}(k)$
+$$
+\tilde{p}(k) = \sum \int \frac{(-ik)^n}{n!}x^n p(x) \mathrm{d}x = \sum_{n=0}^{\infty}  \frac{(-ik)^n}{n!}\langle x^n \rangle 
+$$
+所以我们对**特征函数求导**就可以得到矩：
+$$
+(-i)^n\langle x^n \rangle = ^{(n)}\tilde{p}(k)|_{k = 0}
+$$
+特征函数还可以进行平移，和傅里叶变换有着相同的性质：
+$$
+e^{ikx_0}\tilde{p}(k) = \sum \frac{(-ik)^n}{n!}\langle (x-x_{0})^n \rangle
+$$
+**累计生成函数（cumulant generating function）** 是对特征函数**求对数**：
+$$
+\ln \tilde{p}(k) = \sum_{n=1}^{\infty} \frac{(-ik)^n}{n!}\langle x^n \rangle _{c}
+$$
+我们对左式进行泰勒展开：
+$$
+\ln \tilde{p}(k) = \sum_{n=0}^{\infty} \frac{1}{n!}(\tilde{p}(k)- 1)^n
+$$
+对于次数较低的**累计量（cumulants）**，我们可以直接计算出来：
+$$
+\begin{align*}
+\langle x \rangle _c &= \langle x \rangle \\ \\
+\langle x^2 \rangle _{c} &= \langle x^2 \rangle  - \langle x \rangle ^2 \\ \\
+\langle x^3 \rangle _{c} &= \langle x^3 \rangle  - 3 \langle x^2 \rangle \langle x \rangle  + 2 \langle x \rangle ^3
+\end{align*}
+$$
+我们可以发现**一阶累计量就是数学期望、二阶就是方差**
+
+根据累计生成函数的定义：
+$$
+\sum_{m=0}^{\infty} \frac{(-ik)^m}{m!}\langle x^m \rangle  = \exp\left[ \sum_{i=1}^{N} \frac{(-ik)^n}{n!}\langle x^n \rangle _{c} \right] = \prod \limits_{n}\sum_{p_{n}}\left[ \frac{(-ik)^np_{n}}{p_{n}!}\left( \frac{\langle x^n \rangle _{c}}{n!} \right)^{p_{n}} \right]
+$$
+得到：
+$$
+\langle x^m \rangle = \sum_{p_{n}}m!\prod_{n}  \frac{1}{p_{n}!(n!)^p_{n}}\langle x^n \rangle ^{p_{n}}
+$$
+其中的 $p_{n}$ 和 $n$ 需要满足 $\sum n p_{n} = m$
+
+## 一些重要的概率分布函数
+
+### 高斯分布（正态分布）
+
+高斯分布函数描述了一个连续的实数随机变量：
+$$
+p(x) = \frac{1}{\sqrt{ 2\pi \sigma ^2 }}\exp\left[ - \frac{(x - \lambda)^2}{2 \sigma^2} \right]
+$$
+使用傅里叶变换我们可以得到特征函数：
+$$
+\tilde{p}(k) = \int p(x) e^{-ikx} \mathrm{d}x = \exp\left[ -ik\lambda - \frac{k^2\sigma^2}{2} \right]
+$$
+对 $k$ 求导：
+$$
+\langle x \rangle_{c}  = \lambda = i \frac{\mathrm{d}\tilde{p}}{\mathrm{d}k}\big|_{{k =0}}
+$$
+求二阶导数：
+$$
+\langle x^2 \rangle_{c} = \sigma^2 
+$$
+后续所有的累计概率函数均为 $0$，正态分布完全由其前两个累积量确定，我们可以简单地计算出矩：
+$$
+\begin{align*}
+\langle x \rangle  &= \lambda \\
+\langle x^2 \rangle  &= \sigma^2 + \lambda^2 \\
+\langle x^3 \rangle  &= 3\sigma^2 \lambda + \lambda^3 \\
+\dots
+\end{align*}
+$$
+### 二项分布
+
+二项分布描述了只有两种取值的随机变量，设事件为 $A,B$ ，概率分别是 $p_{A}, p_{B} = 1- p_{A}$ ，在 $N$ 次试验中，取到 $N_{A}$ 次 $A$ 事件的概率为：
+$$
+p_{N}(N_{A}) = \binom{N}{N_{A}}p_{A}^{N_A} p_{B}^{N-N_{A}}
+$$
+二项式系数：
+$$
+\binom{N}{N_{A}} = \frac{N!}{N_{A}!(N-N_{A})!}
+$$
+其特征函数是：
+$$
+\tilde{p_{N}}(k) = \langle e^{{-ikN_{A}}} \rangle  = \sum_{N_{A}=0}^{N} p_{N}(N_{A})e^{{-ikN_{A}}} = (p_{A}e^{{-ik}} + p_{B})^{N}
+$$
+两边同时取对数：
+$$
+\ln \tilde{p}_{N}(k) = N \ln \tilde{p}_{1}(k)
+$$
+可以看出来累计概率函数的对数就是单次对数的相加，这是因为各次试验之间是独立的。
+
+那我们就可以很简单的求出 $N$ 次试验之后的期望和方差，设事件 $A$ 为取到 $1$，事件 $B$ 为取到 $0$：
+$$
+\langle x \rangle_{c}  = Np_{A}, \quad \langle x^{2} \rangle _{c} = N(p_{A} - p_{A}^{2}) 
+$$
+二项分布也可以推广到多项分布。
+
+### 泊松分布
+
+- 在事件间隔 $t \to t+ \mathrm{d}t$ 发生一次事件的概率和 $\mathrm{d}t$ 成正比，当 $\mathrm{d}t \to 0$,
+- 不同事件间隔内事件的发生概率彼此独立
+
+现在考虑在总时间为 $T$ 的二项分布中，我们将总时间分成 $n$ 个 $\mathrm{d}t$ ，利用二项分布可以计算出特征函数，而当 $\mathrm{d}t \to 0$ 则得到了泊松分布，我们设在 $\mathrm{d}t$ 的时间间隔中发生一次事件的概率为 $\alpha \mathrm{d}t$， 由于概率很低，所以就不考虑一个时间间隔中发生多次事件。所以我们会说泊松分布是二项分布的极限形式。
+
+计算出特征函数：
+$$
+\tilde{p}(k) = (p e^{-ik} + (1- p) ) ^{ n}= [1 + \alpha \mathrm{d}t(e^{-ik}-1 )]^{T/\mathrm{d}t} = \exp[\alpha(e^{-ik}-1)T]
+$$
+反过来可以使用傅里叶逆变换计算出概率密度函数：
+$$
+p(k) = \frac{1}{2\pi}\int \mathrm{d}k \exp[\alpha(e^{-ik}-1)T + ikx] = \frac{e^{{-\alpha T}}}{2\pi}\int \mathrm{d}ke^{ikx}\sum_{n=0}^{\infty} \frac{1}{n!}[\alpha T e^{-ik}]^{n}
+$$
+根据公式：
+$$
+\frac{1}{2\pi}\int \mathrm{d}ke^{{ikx}} = \delta(x)
+$$
+代入可以求出：
+$$
+p(x) = e^{-\alpha T}\sum_{n=0}^{\infty} \frac{1}{n!}(\alpha T)^{n}\delta(x-n)
+$$
+这个概率密度函数指出了x只可能取到整数，也就是说我们使用狄拉克函数表示出了一个离散分布。
+
+我们可以计算出泊松分布的累计生成函数：
+$$
+\ln \tilde{p}(k) = \alpha T (e^{-ik} -1 ) = \alpha T \sum_{n=1}^{\infty} \frac{1}{n!}(-ik)^{n}
+$$
+前文我们有一个关于累计量生成函数的公式：
+$$
+\ln \tilde{p}(k) = \sum_{n=1}^{\infty} \frac{(-ik)^{n}}{n!}\langle x^{n} \rangle _{c}
+$$
+所以我们可以计算出泊松分布的累积量是一个常数
+$$
+\langle x^{n} \rangle _{c} = \alpha T 
+$$
+从本质上来看，泊松分布是二项分布的极限情况，当二项分布的 $N \to \infty, p \to 0$ 同时 $Np = const = T \alpha$ 那么二项分布就会演化成泊松分布。此时二项分布的各累积量也都等于 $Np = \alpha T$
+
+## 多重变量分布
+
+当涉及到超过一个变量的时候，比如同时描述粒子的速度与位置，需要使用到 $N$ 维空间的概率分布函数。
+
+**联合概率密度函数**是随机变量 $x$ 在点 $\mathbf{x} = \{x_{1}, x_{2},\dots, x_{N}\}$附近的概率密度，归一化表示为：
+$$
+\int_{\mathcal{S}} \mathrm{d}^{N}\mathbf{x}p(\mathbf{x}) =1 
+$$
+如果各个维度的变量是独立的，那么我们就可以得到：
+$$
+p(\mathbf{x}) = \prod_{i=1}^{N} p(x_{i})
+$$
+**无条件概率密度函数**描述了随机变量的自己的性质，比如我们有粒子的速度与位置的概率密度函数，然后经过数学运算得到粒子的位置概率密度分布，而不关心速度。
+$$
+p(\mathbf{x}) = \int_{\mathcal{S_{\mathbf{v}}}} p(\mathbf{x}, \mathbf{v})\mathrm{d}^{N}\mathbf{v}
+$$
+**条件概率密度函数**描述了随机变量在特定条件下的性质，比如我需要计算特定位置的速度分布函数，那么我就可以得到这个位置的速度-位置分布函数，然后进行归一化。
+$$
+p(\mathbf{v}|\mathbf{x}) = \frac{p(\mathbf{x},\mathbf{v})}{\mathcal{N}}, \quad \mathcal{N} = p(\mathbf{x}) = \int_{all} \mathrm{d}^{3}\mathbf{v}p(\mathbf{x},\mathbf{v})
+$$
+这样子计算出来的概率密度符合归一化条件.
+
+**贝叶斯公式（Bayes' Theorem）** ：
+
+$$
+p(\mathbf{v}|\mathbf{x}) = \frac{p(\mathbf{v})p(\mathbf{x}|\mathbf{v})}{p(\mathbf{x})}
+$$
+
+如果各个维度之间是相互独立的，那么我们可以得到：
+$$
+p(\mathbf{x},\mathbf{v}) = p(\mathbf{v}|\mathbf{x})p(\mathbf{x}) = \prod p(\mathbf{x_{a}}) p(\mathbf{v_{b}})
+$$
+那么就得到了
+$$
+p(\mathbf{v}|\mathbf{x}) = p(\mathbf{v}) = \prod_{i=1}^{N} p(v_{i})
+$$
+此时，条件概率和非条件概率是相等的.
+
+函数的**期望值**为：
+$$
+\langle F(x) \rangle = \int \mathrm{d}^{N}\mathbf{x}p(\mathbf{x})F(\mathbf{x}) 
+$$
+**联合特征函数**为：
+$$
+\tilde{p}(\mathbf{k}) = \langle e^{-i\mathbf{k}\cdot \mathbf{x}} \rangle 
+$$
+**联合矩与联合累积量为：**
+$$
+\langle x_1^{n_1} x_2^{n_2} \cdots x_N^{n_N} \rangle = 
+\left[ \frac{\partial}{\partial (-ik_1)} \right]^{n_1} 
+\left[ \frac{\partial}{\partial (-ik_2)} \right]^{n_2} 
+\cdots 
+\left[ \frac{\partial}{\partial (-ik_N)} \right]^{n_N} 
+\tilde{p}(\mathbf{k} = \mathbf{0}),
+$$
+$$
+\langle x_1^{n_1} * x_2^{n_2} * \cdots x_N^{n_N} \rangle_c = 
+\left[ \frac{\partial}{\partial (-ik_1)} \right]^{n_1} 
+\left[ \frac{\partial}{\partial (-ik_2)} \right]^{n_2} 
+\cdots 
+\left[ \frac{\partial}{\partial (-ik_N)} \right]^{n_N} 
+\ln \tilde{p}(\mathbf{k} = \mathbf{0}).
+$$
+其中对于两个变量的二阶累积量我们称之为协方差：
+$$
+\langle x_{1}*x_{2} \rangle _{c} = \langle x_{1}x_{2} \rangle  - \langle x_{1} \rangle _{c}\langle x_{2} \rangle _{c}
+$$
+等价为:
+$$
+\mathrm{Cov}(x, y) = E[xy] - E[x]E[y]
+$$
+**多重高斯分布**：
+$$
+p(\mathbf{x}) = \frac{1}{\sqrt{(2\pi)^N \det[C]}} \exp \left[ -\frac{1}{2} \sum_{mn} \left( C^{-1} \right)_{mn} (x_m - \lambda_m)(x_n - \lambda_n) \right]
+$$
+特征函数为：
+$$
+\tilde{p}(\mathbf{k}) = \exp\left[ -ik_{m}\lambda_{m} - \frac{1}{2}C_{nm}k_{n}k_{m} \right]
+$$
+此处使用了爱因斯坦求和约定。对特征函数求对数，得到累积量生成函数：
+$$
+\langle x_{m} \rangle _{c} = \lambda_{m} ,\quad \langle x_{m}*x_{n} \rangle _{c} = C_{nm}
+$$
+偶数矩是通过两两组合随机变量得到的：
+$$
+\langle x_{a}x_{b}x_{c}x_{d} \rangle  = C_{ab}C_{cd}+ C_{ac}C_{bd} + C_{ad}C_{bc}
+$$
+## 随机变量的和与中心极限定理
+
+考虑多个随机变量的和 $X = \sum_{i=1}^{N}x_{i}$，它的概率密度是：
+$$
+p_{X}(x) = \int \prod_{i=1}^{N-1}\mathrm{d}x_{i}p(x_{1} \dots, x_{N-1}, x-x_{1}-x_{2}\dots-x_{N-1}) 
+$$
+那么它的特征函数是：
+$$
+\tilde{p}_{X}(k) = \langle \exp \left( -ik\sum_{i=1}^{N} x_{i} \right)\rangle = \tilde{p}(k_{1}= k_{2}= k_{3}= \dots= k)
+$$
+对累积量生成函数进行泰勒展开：
+$$
+\ln \tilde{p}(k) = -ik\sum_{i_{1}=1}^{N}\langle x_{i_{1}} \rangle_{c} + \frac{(-ik)^{2}}{2}\sum_{i_{1}, i_{2}}^{N} \langle x_{i_{1}}x_{i_{2}} \rangle _{c} + \dots   
+$$
+我们得到平均值和方差：
+$$
+\langle X \rangle _{c} = \sum_{i=1}^{N} \langle x_{i} \rangle _{c} = \sum_{i=1}^{N} \langle x_{i} \rangle ,\quad \langle X^{2} \rangle_{c} = \sum_{i_{1}, i_{2}}^{N} \langle x_{i_{1}}x_{i_{2}} \rangle _{c} = \sum C_{ij}
+$$
+如果这些随机变量相互独立，那么协方差是0（因为没有相关性），于是累积量就只是各个随机变量的简单相加：
+$$
+\langle X^{N} \rangle _{c} = \sum_{i=1}^{N} \langle x^{N}_{i} \rangle _{c} 
+$$
+当所有的随机变量都来自于同一类试验，比如是二项分布，那么求和符号可以去掉：
+$$
+\langle X^{N} \rangle _{c} = N \langle x^{N} \rangle _{c}
+$$
+现在我们对变量 $X$ ，进行一些线性处理，使其平均值为0，并且使之方差趋向于一个常数：
+$$
+y = \frac{X - N \langle x \rangle }{\sqrt{N }}
+$$
+当 $N \to \infty$ ，可以估算出 $\langle y^{n} \rangle_{c} \propto N^{1 - 2/n}$，此时新变量的方差趋向于一个常数，并且由于一阶累积量（平均值）为0，所以不会出现无穷大，所有大于二阶的累积量都因为  $N \to \infty$ 而变成0，于是我们得到了高斯分布：
+$$
+\lim_{ N \to \infty } p\left( y = \frac{X - N \langle x \rangle_{c} }{\sqrt{N }} \right) = \frac{1}{\sqrt{ 2 \pi \langle x^{2} \rangle _{c} }}\exp\left( -\frac{y^{2}}{2\langle x_{2} \rangle_{c} } \right)
+$$
+
+### 中心极限定理
+
+随机变量只需要满足 $\sum \langle x_{i_{1}}x_{i_{2}}\dots x_{i_{m}} \rangle_{c} \ll \mathcal{O}\left( N^{\frac{m}{2}} \right)$，那么我们就可以得到高斯分布。
+
+## 大数处理方法
+
+在统计力学中我们要处理大量粒子，所以概率中的 $N$ 通常趋向于正无穷，在热力学中，有三种典型 $N$ 依赖参数：
+
+- 强度量，比如温度、压强，强度量与 $N$ 无依赖关系
+- 广延量，比如体积、能量，广延量和 $N$ 有正比依赖关系，是 $\mathcal{O}(N^{1})$
+- 指数依赖：计算微观状态与计算相空间的可用体积时会遇到，是 $\mathcal{O}(\exp(N\phi))$
+
+在统计力学中，我们常常要处理指数变量的和与积分，接下来有几个简单的处理可以简化计算：
+
+### 指数量的求和：
+
+考虑求和：
+$$
+\mathcal{S} = \sum_{i=1}^{N} \mathcal{E}_{i}
+$$
+其中每一项都大于0，并且指数依赖于 $N$ ，也就是：
+$$
+0 \leq \mathcal{E}_{i} \sim \mathcal{O}(\exp(N \phi_{i}))
+$$
+对于求和的估算决定于最大值，我们设最大值为 $\mathcal{E}_{max}$，于是有：
+$$
+\mathcal{E}_{max} \leq \mathcal{S} \leq N \mathcal{E}_{max}
+$$
+强度量可以表示为 $\dfrac{\ln \mathcal{S}}{N}$，于是：
+$$
+\lim_{ N \to \infty } \frac{\ln \mathcal{S}}{N} = \phi_{max}
+$$
+### 鞍点积分
+
+当我们计算积分：
+$$
+\mathcal{J} = \int \mathrm{d}x \exp(N\phi(x))
+$$
+如上，我们设出最大值，将积分变换成：
+$$
+\mathcal{J} = \int \mathrm{d}x \exp \left[ \phi(x_{max}) + \frac{1}{2}\phi^{\prime\prime}(x_{max})(x - x_{max})^{2}\dots \right] 
+$$
+可以计算出（此时一阶导数为0，二阶导数小于零）：
+$$
+\mathcal{J} \approx e^{N\phi(x_{max})}\int \mathrm{d}x \exp\left[ \frac{N}{2}\phi^{\prime\prime}(x- x_{max})^{2} \right] \approx \sqrt{ \frac{2\pi}{N |\phi^{\prime \prime}(x_{max})|} }e^{N \phi (x_{max})}
+$$
+同时代入 $N \to \infty$ 得到：
+$$
+\lim_{ N \to \infty } \frac{\ln \mathcal{J}}{N} = \phi(x_{max})
+$$
+
+### 斯特林公式
+
+我们有：
+$$
+\int_{0}^{\infty}\mathrm{d}x e^{-ax} = \frac{1}{a}
+$$
+两边对 $a$ 求导得到：
+$$
+\int_{0}^{\infty}\mathrm{d}x x^{N}e^{-ax} = \frac{N!}{a^{N+1}}
+$$
+代入 $a = 1$ 得到:  $N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-x}$，我们可以设一个连续函数来表示阶乘：
+$$
+\Gamma(N+1) = N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-ax} 
+$$
+利用上一节得到的估算方法，我们知道如果可以将积分表示成 $\int \mathrm{d}x \exp(N \phi(x))$ 的形式的话，可以简化处理。
+
+于是我们有
+$$
+\phi(x) = \ln x - \frac{x}{N}
+$$
+这个函数的极大值在 $x_{max} = N$ 其中 $\phi^{\prime\prime}(x_{max}) = -\dfrac{1}{N_{2}}$，代入值我们求得：
+$$
+N! = \sqrt{ 2\pi N } e^{N \ln N - N} = \sqrt{ 2\pi N }N^{N}e^{-N}
+$$
+同时：
+$$
+\ln N! = N \ln N - N + \frac{1}{2}\ln (2\pi N) + \mathcal{O}\left( \frac{1}{N} \right)
+$$
+
