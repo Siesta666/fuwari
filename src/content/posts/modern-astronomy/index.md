@@ -8,7 +8,7 @@ tags:
   - Astronomy
 category: Notes
 draft: false
-lang : zh-CN
+lang: zh-CN
 ---
 
 不知道怎么在博客网站上加载出来图片，索性就不放了，这是一个没有图片的Notes，如果需要图片的话，可以去我的Github上面把笔记和图片下载到本地，建议用Obsidian查看。

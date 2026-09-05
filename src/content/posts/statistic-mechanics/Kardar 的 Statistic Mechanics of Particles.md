@@ -803,7 +803,7 @@ $$
 \ln N! = N \ln N - N + \frac{1}{2}\ln (2\pi N) + \mathcal{O}\left( \frac{1}{N} \right)
 $$
 
-## 气体动理论
+# 气体动理论
 
 ### 引言
 

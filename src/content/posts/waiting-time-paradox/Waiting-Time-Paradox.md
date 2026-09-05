@@ -1,5 +1,5 @@
 ---
-title: 等待时间悖论.md
+title: 等待时间悖论
 published: 2026-09-05
 description: 解释统计学的一个问题——等待时间悖论
 image: ./4.png
