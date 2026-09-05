@@ -324,6 +324,7 @@ $$
 可以看到水的三相点的自由度为0，所以使得三相点十分鲁棒，如果在水中溶解了少量的盐，那么三相点就会沿着相对应的线运动（导致盐水熔点降低）
 
 ### 平衡的稳定性
+	对应于汪志诚的 3.1 节
 
 对于一个热力学系统，我们有这样一种判断**稳定平衡**的方法：
 $$
@@ -366,7 +367,9 @@ $$
 $$
 C_{x} = \frac{ \partial Q }{ \partial T } _{x} = \frac{ \partial S }{ \partial T } _{x} > 0
 $$
-等价于系统的热容需要为正数，温度升高需要热量输入。
+等价于**系统的热容需要为正数，温度升高需要热量输入**。
+
+---
 
 力学平衡和化学平衡可以看作是相似的，我们都可以把其看作是广义位移和广义力的共轭作用。拿气体系统举例子，考虑只有 $\delta x_{i}$ 不为 0 的情况，需要有：
 $$
@@ -375,12 +378,11 @@ $$
 根据线性代数，可以知道这是一个二次型矩阵，要让多项式恒大于0，那么矩阵需要为正定的：
 $$
 \begin{bmatrix}
--\dfrac{ \partial P }{ \partial V }  & -\dfrac{ \partial P }{ \partial N } \\ \\
+-\dfrac{ \partial p }{ \partial V }  & -\dfrac{ \partial p }{ \partial N } \\ \\
 \dfrac{ \partial \mu }{ \partial V } & \dfrac{ \partial \mu }{ \partial N } 
 \end{bmatrix}
 $$
-为一个正定矩阵
-
+为一个正定矩阵，考虑最简单的情况，也就是只有 $(p, V)$ 一组共轭量，那么需要有 $\dfrac{\partial p}{\partial V} < 0$ ，也就是如果系统因为某一种原因体积变小，那么压强应该变大来保持系统平衡。
 #### 关于临界点 Critical Point
 
 对于非理想气体，比如范德瓦尔斯气体，其相图会存在**临界点（Critical Point）** ，此处我们讲的就是气液相变临界点，当气体在等温线上变化，总会存在一个点使得：
@@ -583,7 +585,7 @@ $$
 $$
 p(x) = e^{-\alpha T}\sum_{n=0}^{\infty} \frac{1}{n!}(\alpha T)^{n}\delta(x-n)
 $$
-这个概率密度函数指出了x只可能取到整数，也就是说我们使用狄拉克函数表示出了一个离散分布。
+（此处的概率密度是一个广义函数，通常见到的是 $P(n) = e^{-\alpha T} \frac{1}{n!} (\alpha T)^{n}$）这个概率密度函数指出了x只可能取到整数，也就是说我们使用狄拉克函数表示出了一个离散分布。
 
 我们可以计算出泊松分布的累计生成函数：
 $$
@@ -801,3 +803,94 @@ $$
 \ln N! = N \ln N - N + \frac{1}{2}\ln (2\pi N) + \mathcal{O}\left( \frac{1}{N} \right)
 $$
 
+## 气体动理论
+
+### 引言
+
+在宏观层面上来描述一个热力学系统的方法在第一章已经作过简单介绍，我们可以使用熵、焓、自由能等函数来判断系统的平衡，那么在微观层面上，我们可以使用分子间的相互作用和动力学来解释，这种解释较宏观层面更加底层和基础。其中最容易研究的系统是稀薄气体系统，我们引入相图，在任何时间，我们可以用 $N$ 个粒子的动量和位矢来表示出系统的状态，其中动量和位矢满足哈密顿方程：
+$$
+\begin{align}
+
+
+&\dot{q_{i}} = \frac{ \partial \mathcal{H} }{ \partial p_{i} }  \\ \\
+&\dot{p_{i}} = - \frac{ \partial \mathcal{H} }{ \partial q_{i} } 
+
+\end{align}
+$$
+其中哈密顿量 $\mathcal{H}$ 是系统的总能量，并且哈密顿方程满足时间反演对称性，即 $p \to -p, \text{when t = 0}$ 那么粒子将会重走来路：$q(t) = q(-t)$ 也就是说哈密顿量在 $(p, q) \to (-p, q)$ 变换下保持协变。
+
+一个系统中存在大量粒子，有许多微观状态，但是宏观来看，参数只有寥寥几个，所以我们需要引入系综平均值来作为宏观量：
+$$
+\langle \mathcal{O} \rangle  = \int \mathrm{d}\Gamma \rho(\mathbf{p}, \mathbf{q},t)\mathcal{O}(\mathbf{p}, \mathbf{q})
+$$
+
+### 刘维尔定理
+
+在分析力学中我们学习到：相空间随着时间的演化本身就是一种正则变换，而正则变换不改变相空间的密度，因此我们就得到了刘维尔定理： **相流是一种无法被压缩的流体，相空间体积在演化过程中保持守恒**
+
+证明：考虑在相空间中的体积元：
+$$
+\Omega = \prod \mathrm{d}q_{i}\mathrm{d}p_{i}
+$$
+在共轭变量的投影，比如我们取 $q_{i}, p_{i}$ ，此时投影的面积为：
+$$
+\mathrm{d} A = \mathrm{d}q_{i}\mathrm{d}p_{i}
+$$
+当时间经过了 $\delta t$，变量发生改变。
+$$
+\begin{align}
+
+
+\mathrm{d}q_{i}^{\prime} = \mathrm{d}q_{i} + \frac{ \partial \dot{q_{i}} }{ \partial q_{i} }\mathrm{d}q_{i}\delta t +\mathcal{O}(\delta t^{2}) \\ 
+\mathrm{d}p_{i}^{\prime} = \mathrm{d}  p_{i}+ \frac{ \partial \dot{p_{i}} }{ \partial p_{i} } \mathrm{d}p_{i}\delta t +\mathcal{O}(\delta t^{2})
+
+\end{align}
+$$
+我们可以计算出面积的变化：
+$$
+\mathrm{d}A^{\prime} = \mathrm{d}q_{i}^{\prime}\mathrm{d}p_{i}^{\prime} = \mathrm{d}q_{i}\mathrm{d}p_{i}(1+ \delta t(\frac{ \partial \dot{q_{i}} }{ \partial q_{i} } + \frac{ \partial \dot{p_{i}} }{ \partial p_{i} })  + \mathcal{O}(\delta t ^{2}))
+$$
+代入哈密顿方程，可以发现：
+$$
+\mathrm{d}A^{\prime} = \mathrm{d}A
+$$
+相当于是投影的面积没有发生改变，这一结论对于任意一对共轭参量都成立，所以相空间的体积元大小并没有发生改变，并且在这个体积元内的所有粒子，也都转移到了新的体积元中，那么最终可以得出结论，相空间密度在时间演化下是守恒的。
+
+---
+
+我们也可以写成：
+$$
+\frac{\mathrm{d}\rho}{\mathrm{d}t} = \frac{ \partial \rho }{ \partial t }  + \{ \rho, H\}
+$$
+微观层面下的哈密顿方程具有时间反演不变性，于是我们有：
+$$
+\rho(p,q,t) = \rho(-p,q,-t)
+$$
+利用刘维尔定理推导系综平均值的变化：
+$$
+\frac{\mathrm{d}\langle \mathcal{O} \rangle }{\mathrm{d}t} = \int \mathrm{d}\Gamma \frac{ \partial \rho }{ \partial t } \mathcal{O}(\mathbf{p}, \mathbf{q}) = - \int \mathrm{d}\Gamma \{ \rho, \mathcal{H}\}\mathcal{O}(\mathbf{p},\mathbf{q})
+$$
+使用分部积分，已知在边界相空间密度为 $0$，于是可以略去第一项。
+$$
+\frac{\mathrm{d}\langle  \mathcal{O} \rangle }{\mathrm{d}t} = \int \mathrm{d}\Gamma \rho \{ \mathcal{O}, \mathcal{H}\} = \langle \{\mathcal{O, H} \} \rangle 
+$$
+系综平均的变化率等于物理量和哈氏量的泊松括号的系综平均值。
+
+---
+
+如果系统达到了平衡，那么这个系综平均值应该不再发生变化，所以我们需要
+$$
+\{ \rho, \mathcal{H}\} = 0
+$$
+满足上式的方法有许多，我们可以让 $\rho = \rho(\mathcal{H})$ 这种解说明了相空间密度在$\mathcal{H} = const$ 的超平面上是常量，但是在现实世界中相空间密度并不一定是常数，自然界的演化不一定是均匀的，所以我们这种判断等效于将客观概率替换为主观概率。
+
+### BBGKY层级
+
+考虑一个粒子的概率密度：在位矢 $\mathbf{q}$，动量 $\mathbf{p}$，时间 $t$，发现粒子个数的期望值，可以通过相空间密度计算出来：
+$$
+f_{1}(\mathbf{p},\mathbf{q},t) = N \int \prod_{i=2}^{N} \mathrm{d}^{3}p_{i}\mathrm{d}^{3}q_{i \rho}(p_{1} = \mathbf{p}, q_{1} = \mathbf{q}, p_{2}, q_{2}, \dots, t) 
+$$
+两个粒子的概率密度为：
+$$
+f_{2}(\mathbf{p}, \mathbf{q})
+$$
