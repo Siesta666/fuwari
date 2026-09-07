@@ -886,11 +886,73 @@ $$
 
 ### BBGKY层级
 
-考虑一个粒子的概率密度：在位矢 $\mathbf{q}$，动量 $\mathbf{p}$，时间 $t$，发现粒子个数的期望值，可以通过相空间密度计算出来：
+考虑一个粒子出现在 $(\vec{p}, \vec{q}, t)$ 的概率密度 **（One-particle density）**，我不考虑这个粒子是哪一个粒子，我可以对所有粒子进行求和然后求系综平均：
+$$
+f_{1}(\vec{p}, \vec{q}, t) = \langle \sum_{i=1}^{N}  \delta^{3}(\vec{p_{i}}- \vec{p})\delta^{3}(\vec{q_{i}} - \vec{q}) \rangle  
+$$
+我们可以进行变形，由于在这里我不用考虑是哪一个粒子，所以我可以直接在积分符号外面乘上 $N$ 来表示上面的累加。
 $$
 f_{1}(\mathbf{p},\mathbf{q},t) = N \int \prod_{i=2}^{N} \mathrm{d}^{3}p_{i}\mathrm{d}^{3}q_{i \rho}(p_{1} = \mathbf{p}, q_{1} = \mathbf{q}, p_{2}, q_{2}, \dots, t) 
 $$
+如果我们将后面的积分单独来看，可以发现这是一个**无条件概率密度**，指的是不考虑 $2-N$ 这些粒子的状态，只看第一个粒子的状态，我们可以将这个概率密度记为 $\rho_{1}$ ，那么有 $f_{1} = N\rho_{1}$ ，也就说如果没有前面的**归一化系数** $N$ 那么得到的只是一个无条件概率
+
 两个粒子的概率密度为：
 $$
-f_{2}(\mathbf{p}, \mathbf{q})
+f_{2}(\vec{p}, \vec{q}) = N(N-1)\int \prod_{i=3}^{N} \mathrm{d}V_{i}\rho(\vec{p}_{1}, \dots, \vec{q_{N}}, t) = N(N-1)\rho_{2}
 $$
+此处对于归一化系数的解释：对于第一个粒子有 $N$ 个选择，那么对于第二个粒子就有 $N-1$ 个选择。
+
+推广到 $s$ 个粒子：
+$$
+f_{s}(\vec{p},\vec{q},t) = \frac{N!}{(N-S)!}\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\rho = \frac{N!}{(N-S)!}\rho_{s}
+$$
+我们感兴趣的是这些参数对时间的依赖性，于是我们写出：
+$$
+\frac{ \partial f_{s} }{ \partial t } = \frac{N!}{(N-s)!}\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\frac{ \partial \rho }{ \partial t }  
+$$
+根据刘维尔定理我们知道：
+$$
+\frac{ \partial \rho }{ \partial t }  = -\{\rho, \mathcal{H} \} = \{\mathcal{H}, \rho \}
+$$
+那么我们就去写出系统的哈密顿量 $\mathcal{H}$，这里的哈密顿量都是与时间无关的。 
+$$
+\mathcal{H} = \sum_{i=1}^{N} \left[ \frac{p_{i}^{2}}{2m} + U(\vec{q_{i}})\right] + \frac{1}{2} \sum_{i,j}^{N} U(\vec{q_{i}}- \vec{q_{j}})
+$$
+由于前面我们正写出了 $s$ 个粒子的概率密度函数，自然而然地我们想到将哈密顿量拆分成三个部分。
+$$
+\mathcal{H} = \mathcal{H}_{s} + \mathcal{H}_{N-s} + \mathcal{H}_{inter}
+$$
+其中：
+$$
+\mathcal{H}_{s} = \sum_{m=1}^{s} \left[ \frac{p_{m}^{2}}{2m} + U(\vec{q_{m}}) \right] + \frac{1}{2}\sum_{n \neq m}^{s} U (\vec{q}_{m}- \vec{q}_{n}) 
+$$
+同理于 $\mathcal{H}_{N-s}$，$\mathcal{H}_{int er}$ 等于剩下的交叉项，也就是 $s$ 个和 $N-s$ 个粒子的交叉。
+
+接下来我们可以对之前对于时间的偏导数进行计算：
+$$
+\frac{ \partial f_{s} }{ \partial t } = \frac{N!}{(N-s)!}\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\left\{ \mathcal{H}_{s} + \mathcal{H}_{N-s} + \mathcal{H}_{inter}, \rho \right\}
+$$
+计算第一项：
+$$
+\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\{ \mathcal{H}_{s}, \rho\} = \left\{ \mathcal{H}_{s}, \int \prod_{i=s+1}^{N} \mathrm{d}V_{i} \rho \right\} = \{ \mathcal{H}_{s}, \rho_{s}\}
+$$
+计算第二项，我们发现可以使用分部积分，最终得到第二项为 $0$
+$$
+\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\{ \mathcal{H}_{N-s}, \rho\} = \int \prod_{i=s+1}^{N} \mathrm{d}V_{i} \sum_{j=1}^{N} \left[ \frac{ \partial \mathcal{H} }{ \partial q_{j} }\frac{ \partial \rho }{ \partial p_{j} }  - \frac{ \partial \mathcal{H} }{ \partial p_{j} }\frac{ \partial \rho }{ \partial q_{j} }  \right]
+\sim \int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\sum_{j=1}^{N} \left[ \frac{ \partial^{2} \mathcal{H} }{ \partial p_{j} \partial q_{j}} - \frac{ \partial ^{2}\mathcal{H} }{ \partial q_{j}\partial p_{j} }  \right] = 0
+$$
+对于第三项，我们也可以使用分部积分的方法计算出来，我们可以得到：
+$$
+\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\{ \mathcal{H}_{in ter}, \rho \} = (N-s) \sum_{n=1}^{s} \int \mathrm{d}V_{s+1}\frac{ \partial \mathcal{V}(\vec{q}_{n} - \vec{q}_{s+1}) }{ \partial \vec{q}_{n} } \cdot \frac{ \partial  }{ \partial \vec{p}_{n} }\left[ \int \prod_{i=s+2}^{N} \mathrm{d}V_{i}\rho \right] 
+$$
+最后那一项是 $s+1$ 个粒子的概率密度
+$$
+\int \prod_{i=s+2}^{N} \mathrm{d}V_{i}\rho = \rho_{s+1}
+$$
+整合我们所有的结果我们可以写出：
+$$
+\frac{ \partial f_{s} }{ \partial t } - \{\mathcal{H}_{s}, f_{s} \} = \sum_{n=1}^{s} \int \mathrm{d}V_{s+1}\frac{ \partial \mathcal{V}(\vec{q}_{n}- \vec{q}_{s+1}) }{ \partial \vec{q}_{n} }\cdot \frac{ \partial f_{s+1} }{ \partial \vec{p_{n}} }  
+$$
+这就是我们想要的**BBGKY层级**，我们想要求出$f_{s}$ 必须先求出 $\frac{ \partial f_{s+1} }{ \partial t }$，那么这个逻辑链会不断向上增加，最终和整一个系统的复杂度相当。
+
+我们也可以从物理角度来理解这个公式：我们选择 $s$ 个粒子作为研究对象，这 $s$ 个粒子的相空间密度按照刘维尔定理，其演化应当是：$\frac{ \partial \rho_{s} }{ \partial t }=\{\mathcal{H}, \rho_{s}\}$，但是这个系统并不是一个稳定均匀的系统，粒子之间会又相互碰撞，所以我们需要引入修正项，这 $s$ 个粒子都可能和剩下来的 $N-s$ 个粒子发生碰撞，这就是等式右边的解释。  
