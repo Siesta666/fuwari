@@ -80,6 +80,12 @@ const jsonLd = {
                     md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
                     before:absolute before:top-[0.75rem] before:left-[-1.125rem]
                 ">
+                    {Boolean(entry.data.pinned) && (
+                        <span class="inline-flex items-center gap-1 text-base font-semibold px-2.5 py-0.5 mr-2 rounded-md bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/30 align-middle -translate-y-1">
+                            <Icon name="material-symbols:keep-rounded" class="text-xl" />
+                            <span>{i18n(I18nKey.pinned)}</span>
+                        </span>
+                    )}
                     {entry.data.title}
                 </div>
             </div>

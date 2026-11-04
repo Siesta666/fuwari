@@ -29,6 +29,17 @@ export async function getSortedPosts() {
 		sorted[i].data.prevTitle = sorted[i + 1].data.title;
 	}
 
+	sorted.sort((a, b) => {
+		const pinA = typeof a.data.pinned === "number" ? a.data.pinned : a.data.pinned ? 1 : 0;
+		const pinB = typeof b.data.pinned === "number" ? b.data.pinned : b.data.pinned ? 1 : 0;
+		if (pinA !== pinB) {
+			return pinB - pinA;
+		}
+		const dateA = new Date(a.data.published);
+		const dateB = new Date(b.data.published);
+		return dateA > dateB ? -1 : 1;
+	});
+
 	return sorted;
 }
 export type PostForList = {

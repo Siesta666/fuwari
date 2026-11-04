@@ -52,6 +52,11 @@
           "type": "string"
         },
         {
+          "title": "pinned",
+          "name": "pinned",
+          "type": "boolean"
+        },
+        {
           "title": "draft",
           "name": "draft",
           "type": "boolean"

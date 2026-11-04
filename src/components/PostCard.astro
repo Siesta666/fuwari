@@ -51,6 +51,12 @@ const { remarkPluginFrontmatter } = await entry.render();
         before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
         before:absolute before:top-[35px] before:left-[18px] before:hidden md:before:block
         ">
+            {Boolean(entry.data.pinned) && (
+                <span class="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 mr-2 rounded-md bg-[var(--primary)]/10 text-[var(--primary)] border border-[var(--primary)]/30 align-middle -translate-y-0.5">
+                    <Icon name="material-symbols:keep-rounded" class="text-sm" />
+                    <span>{i18n(I18nKey.pinned)}</span>
+                </span>
+            )}
             {title}
             <Icon class="inline text-[2rem] text-[var(--primary)] md:hidden translate-y-0.5 absolute" name="material-symbols:chevron-right-rounded" ></Icon>
             <Icon class="text-[var(--primary)] text-[2rem] transition hidden md:inline absolute translate-y-0.5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0" name="material-symbols:chevron-right-rounded"></Icon>
