@@ -51,9 +51,10 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
+		LinkPreset.Category,
 		LinkPreset.About,
 		{
-			name: "友链",
+			name: "Link",
 			url: "/friends/",
 		},
 		{

@@ -1,0 +1,11 @@
+---
+import CategoryPanel from "@components/CategoryPanel.svelte";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getSortedPostsList } from "../utils/content-utils";
+
+const sortedPostsList = await getSortedPostsList();
+---
+
+<MainGridLayout title="Category" description="Categories of the blog">
+    <CategoryPanel sortedPosts={sortedPostsList} client:only="svelte"></CategoryPanel>
+</MainGridLayout>
