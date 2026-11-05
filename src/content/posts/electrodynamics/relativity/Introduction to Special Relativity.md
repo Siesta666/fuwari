@@ -1,10 +1,10 @@
 ---
-title: "Special Relativity"
+title: Introduction to Special Relativity
 published: 2026-06-18
-description: "狭义相对论（张量形式）"
+description: 狭义相对论（张量形式）
 tags:
-  - "狭义相对论"
-category: "电动力学"
+  - 狭义相对论
+category: 电动力学
 lang: zh-CN
 draft: false
 ---

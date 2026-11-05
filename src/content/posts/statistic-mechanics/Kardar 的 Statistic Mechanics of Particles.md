@@ -1,5 +1,5 @@
 ---
-title: Kardar 的 Statistic Mechanics of Particles
+title: Kardar's Statistic Mechanics of Particles
 published: 2026-08-18
 description: Kardar的统计力学 读书笔记
 tags:

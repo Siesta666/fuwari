@@ -1,5 +1,5 @@
 ---
-title: Intro
+title: Introduction to Vector Analysis
 published: 2026-05-25
 description: 电动力学中常用的数学基础：梯度、散度、旋度与曲线坐标系。
 tags:

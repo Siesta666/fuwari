@@ -1,5 +1,5 @@
 ---
-title: Lagrange Mechanics
+title: Notes of Lagrange Mechanics
 published: 2026-05-25
 description: 对于拉格朗日力学的简单介绍
 tags:
