@@ -1,5 +1,6 @@
 ---
 import path from "node:path";
+import Comment from "@components/Comment.astro";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
 import TOC from "@components/widget/TOC.astro";
@@ -154,5 +155,7 @@ const jsonLd = {
             </div>}
         </a>
     </div>
+
+    {entry.data.comment !== false && <Comment class="onload-animation" />}
 
 </MainGridLayout>

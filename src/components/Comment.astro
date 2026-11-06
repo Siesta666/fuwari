@@ -1,0 +1,183 @@
+---
+import { Icon } from "astro-icon/components";
+import { commentConfig } from "@/config";
+import I18nKey from "@/i18n/i18nKey";
+import { i18n } from "@/i18n/translation";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+{commentConfig.enable && (
+	<div class:list={["card-base p-6 md:p-8 rounded-[var(--radius-large)] overflow-hidden relative mb-4", className]}>
+		<div class="flex items-center gap-2 mb-5 text-black/80 dark:text-white/80 font-bold text-lg">
+			<Icon name="material-symbols:chat-bubble-outline-rounded" class="text-[1.5rem] text-[var(--primary)]" />
+			<span>{i18n(I18nKey.comments)}</span>
+		</div>
+
+		{!commentConfig.categoryId ? (
+			<div class="text-sm p-5 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black/70 dark:text-white/70 space-y-3">
+				<div class="flex items-center gap-2 font-bold text-black/90 dark:text-white/90">
+					<Icon name="material-symbols:info-outline-rounded" class="text-lg text-[var(--primary)]" />
+					<span>Giscus 评论区待启用</span>
+				</div>
+				<p class="leading-relaxed">
+					当前已集成 Giscus 评论系统。要正式开启评论区，请按以下两步操作：
+				</p>
+				<ol class="list-decimal pl-5 space-y-2 leading-relaxed">
+					<li>
+						前往你的 GitHub 仓库开启 Discussions：
+						<a
+							href={`https://github.com/${commentConfig.repo}/settings`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="link text-[var(--primary)] font-medium inline-flex items-center gap-1"
+						>
+							<span>{commentConfig.repo} 仓库设置</span>
+							<Icon name="fa6-solid:arrow-up-right-from-square" class="text-xs" />
+						</a>
+						（向下滚动至 Features 区域，勾选 <strong>Discussions</strong> 并保存）
+					</li>
+					<li>
+						访问
+						<a
+							href="https://giscus.app/zh-CN"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="link text-[var(--primary)] font-medium inline-flex items-center gap-1"
+						>
+							<span>giscus.app</span>
+							<Icon name="fa6-solid:arrow-up-right-from-square" class="text-xs" />
+						</a>
+						，输入仓库 <code>{commentConfig.repo}</code>，Discussion 分类选择 <strong>General</strong>，复制生成的 <code>categoryId</code>（如 <code>DIC_kw...</code>），粘贴到博客配置文件 <code>src/config.ts</code> 中的 <code>commentConfig.categoryId</code> 即可。
+					</li>
+				</ol>
+			</div>
+		) : (
+			<giscus-comment
+				data-repo={commentConfig.repo}
+				data-repo-id={commentConfig.repoId}
+				data-category={commentConfig.category}
+				data-category-id={commentConfig.categoryId}
+				data-mapping={commentConfig.mapping || "pathname"}
+				data-strict={commentConfig.strict || "0"}
+				data-reactions-enabled={commentConfig.reactionsEnabled || "1"}
+				data-emit-metadata={commentConfig.emitMetadata || "0"}
+				data-input-position={commentConfig.inputPosition || "top"}
+				data-theme={commentConfig.theme || "light"}
+				data-dark-theme={commentConfig.darkTheme || "dark"}
+				data-lang={commentConfig.lang || "zh-CN"}
+				data-loading={commentConfig.loading || "lazy"}
+				class="block min-h-[160px]"
+			>
+				<div class="flex items-center justify-center py-8 text-sm text-black/40 dark:text-white/40">
+					评论区加载中...
+				</div>
+			</giscus-comment>
+		)}
+	</div>
+)}
+
+<script>
+class GiscusComment extends HTMLElement {
+	observer: MutationObserver | null = null;
+
+	connectedCallback() {
+		this.render();
+		this.initThemeObserver();
+	}
+
+	disconnectedCallback() {
+		this.observer?.disconnect();
+		this.observer = null;
+	}
+
+	getCurrentTheme(): string {
+		const isDark = document.documentElement.classList.contains("dark");
+		return isDark
+			? (this.dataset.darkTheme || "dark")
+			: (this.dataset.theme || "light");
+	}
+
+	render() {
+		const repo = this.dataset.repo;
+		const repoId = this.dataset.repoId;
+		const categoryId = this.dataset.categoryId;
+
+		if (!repo || !repoId || !categoryId) {
+			return;
+		}
+
+		if (this.querySelector("iframe.giscus-frame") || this.querySelector("script[src*='giscus.app']")) {
+			return;
+		}
+
+		this.innerHTML = "";
+
+		const script = document.createElement("script");
+		script.src = "https://giscus.app/client.js";
+		script.setAttribute("data-repo", repo);
+		script.setAttribute("data-repo-id", repoId);
+		script.setAttribute("data-category", this.dataset.category || "");
+		script.setAttribute("data-category-id", categoryId);
+		script.setAttribute("data-mapping", this.dataset.mapping || "pathname");
+		script.setAttribute("data-strict", this.dataset.strict || "0");
+		script.setAttribute("data-reactions-enabled", this.dataset.reactionsEnabled || "1");
+		script.setAttribute("data-emit-metadata", this.dataset.emitMetadata || "0");
+		script.setAttribute("data-input-position", this.dataset.inputPosition || "top");
+		script.setAttribute("data-theme", this.getCurrentTheme());
+		script.setAttribute("data-lang", this.dataset.lang || "zh-CN");
+		if (this.dataset.loading) {
+			script.setAttribute("data-loading", this.dataset.loading);
+		}
+		script.crossOrigin = "anonymous";
+		script.async = true;
+
+		this.appendChild(script);
+	}
+
+	initThemeObserver() {
+		if (this.observer) return;
+		this.observer = new MutationObserver(() => {
+			const iframe = this.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
+			if (!iframe || !iframe.contentWindow) return;
+			iframe.contentWindow.postMessage(
+				{
+					giscus: {
+						setConfig: {
+							theme: this.getCurrentTheme(),
+						},
+					},
+				},
+				"https://giscus.app"
+			);
+		});
+		this.observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+		});
+	}
+}
+
+if (!customElements.get("giscus-comment")) {
+	customElements.define("giscus-comment", GiscusComment);
+}
+
+const reinitGiscus = () => {
+	const el = document.querySelector<GiscusComment>("giscus-comment");
+	if (el && typeof el.render === "function") {
+		el.render();
+	}
+};
+
+if ((window as unknown as { swup?: { hooks?: { on?: (event: string, handler: () => void) => void } } }).swup) {
+	(window as unknown as { swup: { hooks: { on: (event: string, handler: () => void) => void } } }).swup.hooks?.on?.("page:view", reinitGiscus);
+} else {
+	document.addEventListener("swup:enable", () => {
+		(window as unknown as { swup?: { hooks?: { on?: (event: string, handler: () => void) => void } } }).swup?.hooks?.on?.("page:view", reinitGiscus);
+	});
+}
+</script>

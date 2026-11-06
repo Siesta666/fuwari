@@ -12,6 +12,7 @@ const postsCollection = defineCollection({
 		category: z.string().optional().nullable().default(""),
 		lang: z.string().optional().default(""),
 		pinned: z.union([z.boolean(), z.number()]).optional().default(false),
+		comment: z.boolean().optional().default(true),
 
 		/* For internal use */
 		prevTitle: z.string().default(""),

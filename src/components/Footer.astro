@@ -39,7 +39,7 @@ const counterEnabled = counterConfig.enable;
     </div>
 </div>
 
-<script define:vars={{ siteStartDate, counterApiUrl, counterEnabled }}>
+<script is:inline define:vars={{ siteStartDate, counterApiUrl, counterEnabled }}>
 function updateRunningTime() {
     const startDate = new Date(siteStartDate);
     const now = new Date();

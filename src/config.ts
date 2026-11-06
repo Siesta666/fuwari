@@ -1,4 +1,5 @@
 import type {
+	CommentConfig,
 	CounterConfig,
 	ExpressiveCodeConfig,
 	Friend,
@@ -98,6 +99,23 @@ export const counterConfig: CounterConfig = {
 	enable: true,
 	// 部署 worker/ 目录后，把这里改成你的计数器 Worker 地址
 	apiUrl: "https://fuwari-counter.bianwenzhao.workers.dev/",
+};
+
+export const commentConfig: CommentConfig = {
+	enable: true,
+	repo: "Siesta666/fuwari",
+	repoId: "R_kgDOTfA7yw",
+	category: "General",
+	categoryId: "", // 开启 GitHub Discussions 后在此填入 Category ID（或在 giscus.app 生成）
+	mapping: "pathname",
+	strict: "0",
+	reactionsEnabled: "1",
+	emitMetadata: "0",
+	inputPosition: "top",
+	theme: "light",
+	darkTheme: "dark",
+	lang: "zh-CN",
+	loading: "lazy",
 };
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {

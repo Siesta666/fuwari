@@ -84,6 +84,23 @@ export type CounterConfig = {
 	apiUrl: string;
 };
 
+export type CommentConfig = {
+	enable: boolean;
+	repo: `${string}/${string}`;
+	repoId: string;
+	category: string;
+	categoryId: string;
+	mapping?: "pathname" | "url" | "title" | "og:title" | "slug" | "number";
+	strict?: "0" | "1";
+	reactionsEnabled?: "0" | "1";
+	emitMetadata?: "0" | "1";
+	inputPosition?: "top" | "bottom";
+	theme?: string;
+	darkTheme?: string;
+	lang?: string;
+	loading?: "lazy" | "eager";
+};
+
 export type LIGHT_DARK_MODE =
 	| typeof LIGHT_MODE
 	| typeof DARK_MODE
@@ -102,6 +119,7 @@ export type BlogPostData = {
 	prevSlug?: string;
 	nextTitle?: string;
 	nextSlug?: string;
+	comment?: boolean;
 };
 
 export type ExpressiveCodeConfig = {
