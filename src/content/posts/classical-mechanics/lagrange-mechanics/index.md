@@ -9,11 +9,11 @@ lang: zh-CN
 draft: false
 ---
 
-## 拉格朗日力学
+# 拉格朗日力学
 
 **牛顿力学体系**中，分析问题的核心是 **力** ，但是当问题的复杂度提升，受力分析变得复杂和不明晰，牛顿力学的实用性就大幅下降，比如在解决一般理想双摆的问题中，不同性质的力有各种各样的方向，让列出微分方程显得十分困难，而**拉格朗日力学**则弥补了牛顿力学在这一方面的短板：拉格朗日力学擅长保守系统的运动分析，由于抛弃了传统的 **力** 这一概念，在数学上更加注重解析表达，更具有理论美感。
 
-### 广义坐标
+## 广义坐标
 
 在热学中，我们引入了内能$U$、焓$H$、熵$S$来描述一个热力学系统，那么为了描述一个力学系统的状态，我们也可以引入一些参数。
 
@@ -33,7 +33,7 @@ $$
 
 广义速度和广义坐标一起描述了系统在 **速度相空间** 中的分布情况，此处的 **速度相空间** 在热力学中也有类似的概念，我们在讨论麦克斯韦-玻尔兹曼分布的时候，我们得到的分布函数其实也是描述粒子在速度相空间的分布，对于一个在三维空间中自由运动的粒子，速度相空间是由3个广义坐标和3个广义速度织成的6维空间，但是此处我们需要澄清的是：速度相空间并不是真正的相空间，因为广义速度和广义坐标并不完全**独立**，我们在取定了广义坐标函数之后，广义速度事实上也是确定的，更加详细的讨论可见哈密顿力学。
 
-### 拉格朗日方程
+## 拉格朗日方程
 
 在整个拉格朗日力学的框架中，**拉格朗日量可以说是最为核心的物理量**，从性质上看，拉格朗日量是描述系统的状态函数，类似于热力学系统中的内能等，从物理意义上看，拉格朗日量是一个不随参考系而变化的量，从力学意义上看，拉格朗日量引出的拉格朗日力学需要和牛顿力学兼容。
 
@@ -101,3 +101,44 @@ $$
 $$
 \delta \int L^{\prime}(Q, \dot{Q}, t) = 0
 $$
+## 点变换下拉格朗日方程的协变形式
+
+考虑广义坐标存在一种点变换：
+$$
+Q^a = Q^a(q^a, t)
+$$
+上文提到：根据伽利略原理（经典力学中，相对论中就是相对论原理，对应也变成洛伦兹变换）拉格朗日方程的形式应该保持协变，也就是：
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{ \partial L(Q^a, \dot{Q}^a,t) }{ \partial \dot{Q}^a }  \right) - \frac{ \partial L(Q^a,\dot{Q}^a,t) }{ \partial Q^a } = 0 
+$$
+这在微分几何的语言中，对应的是微分同胚，点变换是一个光滑的双射，前后广义坐标对应的流形是微分同胚的关系。这个关系可以直接从拉格朗日方程出发推导出来：
+
+对点变换求导：
+$$
+\dot{Q}^a = \frac{ \partial Q^a }{ \partial t }  + \frac{ \partial Q^a }{ \partial q^b } \dot{q}^b
+$$
+得到速度变换关系：
+$$
+\frac{ \partial \dot{Q}^a }{ \partial \dot{q}^b }  = \frac{ \partial Q^a }{ \partial q^b } 
+$$
+计算点变换之后的拉格朗日方程：
+$$
+\frac{ \partial L(Q^a, \dot{Q}^a,t) }{ \partial \dot{Q}^a } = \frac{ \partial L }{ \partial q^b } \frac{ \partial q^b }{ \partial \dot{Q}^a }  + \frac{ \partial L }{ \partial \dot{q}^b } \frac{ \partial \dot{q}^b }{ \partial \dot{Q}^a } 
+$$
+$$
+\frac{ \partial L }{ \partial Q^a }  = \frac{ \partial L }{ \partial q^b } \frac{ \partial q^b }{ \partial Q^a } + \frac{ \partial L }{ \partial \dot{q}^b } \frac{ \partial \dot{q}^b }{ \partial Q^a } 
+$$
+在拉格朗日力学框架中，广义速度和广义坐标是独立的。
+$$
+\frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{ \partial q^b }{ \partial \dot{Q}^a }  \right) = \frac{ \partial ^2 q^b }{ \partial \dot{Q}^a \partial Q^c } \dot{Q}^c + \frac{ \partial^{2} q^b }{ \partial t \partial \dot{Q}^a } 
+$$
+$$
+\frac{ \partial \dot{q}^a }{ \partial \dot{Q}^b }  = \frac{\mathrm{d}}{\mathrm{d}t}\left( \frac{ \partial q^b }{ \partial \dot{Q}^b }  \right) = \frac{ \partial q^a }{ \partial Q^b } 
+$$
+代入之后，得到：
+$$
+\frac{ \partial L(Q^a, \dot{Q}^a,t) }{ \partial \dot{Q}^a } - \frac{ \partial L }{ \partial Q^a } = \frac{ \partial q^b }{ \partial Q^a } \left(\frac{\mathrm{d}}{\mathrm{dt}} \frac{ \partial L }{ \partial \dot{q}^b }  - \frac{ \partial L }{ \partial q^b }  \right)
+$$
+这就证明了点变换前后的拉格朗日方程是等价的，我们使用不同广义坐标框架下的变分法也可以得到相同的结果。
+
+
