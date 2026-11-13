@@ -31,6 +31,8 @@ yarn.lock
 *.iml
 
 .obsidian/
+**/.obsidian/
+**/.claudian/
 
 # pnpm local store
 .pnpm-store/

@@ -1,0 +1,1376 @@
+{
+  "2026-11-10": {
+    "count": 2,
+    "messages": [
+      "Merge branch 'main' of github.com:Siesta666/fuwari",
+      "update"
+    ]
+  },
+  "2026-11-09": {
+    "count": 1,
+    "messages": [
+      "update"
+    ]
+  },
+  "2026-11-06": {
+    "count": 4,
+    "messages": [
+      "feat: 填入 Giscus categoryId 并正式激活博客评论区",
+      "perf: 添加图片自动化就地压缩脚本并优化全站已有大图 (节省约30MB空间)",
+      "feat: 集成 Giscus 评论系统并支持明暗主题动态切换",
+      "Update"
+    ]
+  },
+  "2026-11-05": {
+    "count": 5,
+    "messages": [
+      "update",
+      "chore: 修改统一文章标题",
+      "update",
+      "feat: 更新配置文件，修改视图，增加目录页面",
+      "update"
+    ]
+  },
+  "2026-11-04": {
+    "count": 2,
+    "messages": [
+      "feat: 添加博客置顶功能与知乎链接，更新博客内容",
+      "update"
+    ]
+  },
+  "2026-11-02": {
+    "count": 1,
+    "messages": [
+      "update"
+    ]
+  },
+  "2026-10-31": {
+    "count": 1,
+    "messages": [
+      "update"
+    ]
+  },
+  "2026-10-30": {
+    "count": 1,
+    "messages": [
+      "update"
+    ]
+  },
+  "2026-10-29": {
+    "count": 4,
+    "messages": [
+      "update",
+      "update",
+      "update",
+      "update"
+    ]
+  },
+  "2026-10-28": {
+    "count": 1,
+    "messages": [
+      "update"
+    ]
+  },
+  "2026-10-27": {
+    "count": 2,
+    "messages": [
+      "update",
+      "Update from macbook 2026/10/27"
+    ]
+  },
+  "2026-10-22": {
+    "count": 1,
+    "messages": [
+      "Update from Windows PC 2026/10/22"
+    ]
+  },
+  "2026-10-21": {
+    "count": 4,
+    "messages": [
+      "update from macbook 2026/10/21",
+      "Merge branch 'main' of github.com:Siesta666/fuwari",
+      "Update from my windows PC 2026/10/21",
+      "Update from macbook 2026/10/21"
+    ]
+  },
+  "2026-10-20": {
+    "count": 1,
+    "messages": [
+      "Update/10/20"
+    ]
+  },
+  "2026-10-19": {
+    "count": 1,
+    "messages": [
+      "Update 2026/10/19"
+    ]
+  },
+  "2026-10-12": {
+    "count": 1,
+    "messages": [
+      "Update 2026/10/12"
+    ]
+  },
+  "2026-10-10": {
+    "count": 2,
+    "messages": [
+      "Update 2026/10/10",
+      "Update 2026/10/10"
+    ]
+  },
+  "2026-10-07": {
+    "count": 1,
+    "messages": [
+      "Update 2026/10/7"
+    ]
+  },
+  "2026-09-23": {
+    "count": 3,
+    "messages": [
+      "Update 2026/9/23",
+      "Update 2026/9/23",
+      "Update 2026/9/23"
+    ]
+  },
+  "2026-09-07": {
+    "count": 1,
+    "messages": [
+      "Update 2026/9/7"
+    ]
+  },
+  "2026-09-05": {
+    "count": 2,
+    "messages": [
+      "Update 2026/9/5",
+      "Update 2026/9/5"
+    ]
+  },
+  "2026-09-03": {
+    "count": 1,
+    "messages": [
+      "update 2026/9/13"
+    ]
+  },
+  "2026-08-20": {
+    "count": 2,
+    "messages": [
+      "Update 8/20",
+      "Update 8/20"
+    ]
+  },
+  "2026-08-19": {
+    "count": 4,
+    "messages": [
+      "Update 8/19",
+      "Update a note of statistic mechanics",
+      "Fix",
+      "Update the previous blogs"
+    ]
+  },
+  "2026-08-13": {
+    "count": 2,
+    "messages": [
+      "fix: 页面跳转后重新加载访客计数",
+      "chore: 忽略 pnpm 缓存与 wrangler 临时文件"
+    ]
+  },
+  "2026-08-09": {
+    "count": 1,
+    "messages": [
+      "添加访客计数功能"
+    ]
+  },
+  "2026-07-24": {
+    "count": 1,
+    "messages": [
+      "set the default theme -- DARK"
+    ]
+  },
+  "2026-07-23": {
+    "count": 1,
+    "messages": [
+      "add the friendlinks"
+    ]
+  },
+  "2026-07-22": {
+    "count": 1,
+    "messages": [
+      "fix"
+    ]
+  },
+  "2026-07-21": {
+    "count": 3,
+    "messages": [
+      "fix",
+      "fix",
+      "init"
+    ]
+  },
+  "2025-12-12": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 13 updates (#681)"
+    ]
+  },
+  "2025-10-08": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 6 updates (#648)"
+    ]
+  },
+  "2025-09-28": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 3 updates (#640)"
+    ]
+  },
+  "2025-09-25": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump @astrojs/svelte from 7.1.1 to 7.2.0 (#639)"
+    ]
+  },
+  "2025-09-24": {
+    "count": 2,
+    "messages": [
+      "chore(deps): bump svelte from 5.38.10 to 5.39.2 (#632)",
+      "chore(deps): bump the patch-updates group across 1 directory with 3 updates (#635)"
+    ]
+  },
+  "2025-09-18": {
+    "count": 2,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 5 updates (#630)",
+      "chore(deps): bump @astrojs/sitemap in the minor-updates group (#631)"
+    ]
+  },
+  "2025-09-17": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 7 updates (#629)"
+    ]
+  },
+  "2025-09-16": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the minor-updates group with 2 updates (#622)"
+    ]
+  },
+  "2025-09-06": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 2 updates (#621)"
+    ]
+  },
+  "2025-09-05": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 4 updates (#619)"
+    ]
+  },
+  "2025-08-24": {
+    "count": 4,
+    "messages": [
+      "feat: add support for spoiler text (#602)",
+      "fix: improving contrast TOC light theme (#500)",
+      "refactor: replacing hardcoded style for existing variable (#525)",
+      "fix: automatically wrap social links list (#604)"
+    ]
+  },
+  "2025-08-23": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 3 updates (#607)"
+    ]
+  },
+  "2025-08-22": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 2 updates (#597)"
+    ]
+  },
+  "2025-08-21": {
+    "count": 4,
+    "messages": [
+      "fix: add display inline-block to link styles in markdown.css (#595)",
+      "fix(utils): replace map with forEach to resolve biome lint error | 解决Github Action Biome 代码检查错误 (#601)",
+      "Bump biome (#603)",
+      "chore(deps): bump the minor-updates group across 1 directory with 4 updates (#598)"
+    ]
+  },
+  "2025-08-20": {
+    "count": 2,
+    "messages": [
+      "Fixing Theme Color Selection Reset Button Animation (#563)",
+      "Merge pull request #599 from prawee/main"
+    ]
+  },
+  "2025-08-10": {
+    "count": 1,
+    "messages": [
+      "fix: Correct language setting reminder, zh-CN -> zh_CN (#585)"
+    ]
+  },
+  "2025-08-08": {
+    "count": 1,
+    "messages": [
+      "fix(TOC): hide active overlay when no sections active (#586)"
+    ]
+  },
+  "2025-08-09": {
+    "count": 1,
+    "messages": [
+      "fix: define fonts for code block titles and language badges (#589)"
+    ]
+  },
+  "2025-08-06": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 2 updates (#582)"
+    ]
+  },
+  "2025-08-05": {
+    "count": 1,
+    "messages": [
+      "fix: missing base path in rss (#551)"
+    ]
+  },
+  "2025-08-03": {
+    "count": 5,
+    "messages": [
+      "fix: update language options in SiteConfig for clarity and completeness",
+      "Merge branch 'main' into main",
+      "Turkish translation (#575)",
+      "chore(deps): bump the minor-updates group across 1 directory with 2 updates (#572)",
+      "Add issue and pull request template (#578)"
+    ]
+  },
+  "2025-08-01": {
+    "count": 1,
+    "messages": [
+      "fix: 修復 spec 收藏未定義提示 (#516)"
+    ]
+  },
+  "2025-07-31": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 3 updates (#569)"
+    ]
+  },
+  "2025-07-29": {
+    "count": 5,
+    "messages": [
+      "Update config.ts",
+      "Update translation.ts",
+      "Create id.ts",
+      "Create README.id.md",
+      "Update README.md"
+    ]
+  },
+  "2025-07-27": {
+    "count": 2,
+    "messages": [
+      "feat: add Vietnamese translation (#548)",
+      "fix: missing toc if base url is set (#550)"
+    ]
+  },
+  "2025-07-25": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 10 updates (#565)"
+    ]
+  },
+  "2025-07-24": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the minor-updates group across 1 directory with 4 updates (#562)"
+    ]
+  },
+  "2025-07-13": {
+    "count": 2,
+    "messages": [
+      "docs: update Korean README to match the main README (#552)",
+      "perf(content): ⚡️ reduce archive page size by stripping post body (#541)"
+    ]
+  },
+  "2025-07-08": {
+    "count": 1,
+    "messages": [
+      "docs: update Thai README to match the main README (#545)"
+    ]
+  },
+  "2025-07-03": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump astro in the patch-updates group across 1 directory (#530)"
+    ]
+  },
+  "2025-06-28": {
+    "count": 1,
+    "messages": [
+      "chore(deps-dev): bump @biomejs/biome in the patch-updates group (#524)"
+    ]
+  },
+  "2025-06-26": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 5 updates (#521)"
+    ]
+  },
+  "2025-06-20": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the minor-updates group across 1 directory with 2 updates (#513)"
+    ]
+  },
+  "2025-06-18": {
+    "count": 2,
+    "messages": [
+      "use correct s thingy in english for words & reading time (#503)",
+      "Biome 2.0 with format (#510)"
+    ]
+  },
+  "2025-06-13": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group across 1 directory with 5 updates (#496)"
+    ]
+  },
+  "2025-06-11": {
+    "count": 2,
+    "messages": [
+      "fix: fixing rss by cleaning invalid characters (#492)",
+      "chore(deps): bump astro from 5.8.1 to 5.9.0 in the minor-updates group (#489)"
+    ]
+  },
+  "2025-06-08": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump svelte in the patch-updates group (#488)"
+    ]
+  },
+  "2025-06-06": {
+    "count": 2,
+    "messages": [
+      "fix: refactor onMount to avoid unnecessary async calls for search (#481)",
+      "chore(deps): bump the patch-updates group across 1 directory with 3 updates (#486)"
+    ]
+  },
+  "2025-06-04": {
+    "count": 2,
+    "messages": [
+      "Updated README.md to add Deepwiki badges",
+      "chore(deps): bump the patch-updates group across 1 directory with 2 updates (#480)"
+    ]
+  },
+  "2025-06-03": {
+    "count": 3,
+    "messages": [
+      "docs: update README and add contributing guide",
+      "feat: introduce Expressive Code for code block rendering (#476)",
+      "chore: add `check` command"
+    ]
+  },
+  "2025-05-30": {
+    "count": 5,
+    "messages": [
+      "fix: fix type errors",
+      "fix: unable to list uncategorized posts on the archive page (fix #471)",
+      "fix: improve category URL handling with additional checks (#472)",
+      "chore(deps): bump the patch-updates group across 1 directory with 4 updates (#470)",
+      "feat: make archive page dynamic (#469)"
+    ]
+  },
+  "2025-05-23": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the minor-updates group across 1 directory with 3 updates (#458)"
+    ]
+  },
+  "2025-05-20": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump overlayscrollbars in the patch-updates group (#456)"
+    ]
+  },
+  "2025-05-18": {
+    "count": 5,
+    "messages": [
+      "fix: resolve katex-display scrollbar issues (#326)",
+      "chore: update readme (#300)",
+      "doc: update supported feature (#418)",
+      "fix: conflicting display properties in class list (#450)",
+      "chore(deps): bump @iconify-json/material-symbols (#452)"
+    ]
+  },
+  "2025-05-16": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump svelte in the patch-updates group (#451)"
+    ]
+  },
+  "2025-05-15": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the minor-updates group with 2 updates (#449)"
+    ]
+  },
+  "2025-05-14": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 2 updates (#448)"
+    ]
+  },
+  "2025-05-13": {
+    "count": 2,
+    "messages": [
+      "chore(deps): bump the minor-updates group with 2 updates (#447)",
+      "chore(deps): bump svelte in the patch-updates group (#446)"
+    ]
+  },
+  "2025-05-09": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump astro from 5.7.11 to 5.7.12 in the patch-updates group (#445)"
+    ]
+  },
+  "2025-05-07": {
+    "count": 3,
+    "messages": [
+      "Revert \"chore(deps-dev): bump @types/sanitize-html in the minor-updates group…\" (#443)",
+      "chore(deps-dev): bump @types/sanitize-html in the minor-updates group (#442)",
+      "chore(deps): bump astro from 5.7.10 to 5.7.11 in the patch-updates group (#441)"
+    ]
+  },
+  "2025-05-06": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump overlayscrollbars in the patch-updates group (#440)"
+    ]
+  },
+  "2025-05-05": {
+    "count": 1,
+    "messages": [
+      "fix: Trim whitespace from category and tag names in URL generation (#437)"
+    ]
+  },
+  "2025-05-02": {
+    "count": 1,
+    "messages": [
+      "fix: Correct template literals for aria-label/class/style attributes (#435)"
+    ]
+  },
+  "2025-05-01": {
+    "count": 3,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 2 updates (#432)",
+      "Fix category with reserved character (#431)",
+      "fix: Encode URI components for tag links to handle reserved characters (#430)"
+    ]
+  },
+  "2025-04-30": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 2 updates (#428)"
+    ]
+  },
+  "2025-04-29": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump astro from 5.7.5 to 5.7.8 in the patch-updates group (#427)"
+    ]
+  },
+  "2025-04-28": {
+    "count": 4,
+    "messages": [
+      "364 remove astro compress2 (#424)",
+      "fix: Remove useless calls during initialization (#295)",
+      "style: The search panel exceeds the entire page (#302)",
+      "fix: TOC warning on home page (#402)"
+    ]
+  },
+  "2025-04-24": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 3 updates (#417)"
+    ]
+  },
+  "2025-04-23": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump svelte in the patch-updates group (#414)"
+    ]
+  },
+  "2025-04-22": {
+    "count": 1,
+    "messages": [
+      "fix: enhance link styling on hover and active states (#413)"
+    ]
+  },
+  "2025-04-21": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the minor-updates group with 2 updates (#409)"
+    ]
+  },
+  "2025-04-19": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump the patch-updates group with 2 updates (#408)"
+    ]
+  },
+  "2025-04-17": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump astro from 5.7.0 to 5.7.2 in the patch-updates group (#403)"
+    ]
+  },
+  "2025-04-16": {
+    "count": 3,
+    "messages": [
+      "fix: Switch page error when fetch fails (#304)",
+      "chore(deps): bump the minor-updates group with 2 updates (#400)",
+      "chore(deps): bump the patch-updates group across 1 directory with 4 updates (#398)"
+    ]
+  },
+  "2025-04-15": {
+    "count": 1,
+    "messages": [
+      "fix: disallow crawling from `/_astro/` (#399)"
+    ]
+  },
+  "2025-04-09": {
+    "count": 5,
+    "messages": [
+      "fix: The banner configuration is not enabled, resulting in console error (#293)",
+      "Merge pull request #309 from CarlosCB1986/patch-4",
+      "Merge pull request #391 from saicaca/390-fix-entry-type-is-any",
+      "refactor: replace 'any' type with CollectionEntry for better type safety in PostCard and PostPage components",
+      "chore(deps): bump svelte in the patch-updates group (#388)"
+    ]
+  },
+  "2025-04-08": {
+    "count": 8,
+    "messages": [
+      "fix: The previous and next pages carry baseurl (#292)",
+      "add CI (#384)",
+      "format all code (#386)",
+      "refactor: remove unused props from components and improve error handling in about page (#385)",
+      "fix: multiple registration events lead to incorrect click events (#305)"
+    ]
+  },
+  "2025-04-06": {
+    "count": 1,
+    "messages": [
+      "feat: exclude Katex elements from Pagefind indexing (#307)"
+    ]
+  },
+  "2025-04-05": {
+    "count": 3,
+    "messages": [
+      "fix: check whether the component is defined already (#337)",
+      "Update WidgetLayout.astro (#333)",
+      "chore(deps): bump astro-compress in the patch-updates group (#374)"
+    ]
+  },
+  "2025-04-02": {
+    "count": 1,
+    "messages": [
+      "chore(deps): bump svelte in the patch-updates group (#371)"
+    ]
+  },
+  "2025-04-01": {
+    "count": 3,
+    "messages": [
+      "fix: biome linter error (#369)",
+      "fix(biome): update schema version and refine configuration settings (#368)",
+      "chore(deps): bump the patch-updates group with 4 updates (#361)"
+    ]
+  },
+  "2025-03-30": {
+    "count": 1,
+    "messages": [
+      "fix: MarkdownIt String error when md file body is empty (#303)"
+    ]
+  },
+  "2025-03-29": {
+    "count": 1,
+    "messages": [
+      "chore(deps-dev): bump @types/sanitize-html in the minor-updates group (#357)"
+    ]
+  },
+  "2025-03-28": {
+    "count": 1,
+    "messages": [
+      "fix(blog): restore prev/next post navigation buttons (#346)"
+    ]
+  },
+  "2025-03-27": {
+    "count": 10,
+    "messages": [
+      "Merge pull request #355 from saicaca/dependabot-npm_and_yarn-minor-updates-dc79fc5a05",
+      "chore(deps): bump the minor-updates group with 2 updates",
+      "Fix Dependabot config (#354)",
+      "Merge pull request #353 from L4Ph/feature/deps-update",
+      "add dependabot config"
+    ]
+  },
+  "2025-03-11": {
+    "count": 1,
+    "messages": [
+      "feat: add directory creation for post folder"
+    ]
+  },
+  "2025-01-25": {
+    "count": 1,
+    "messages": [
+      "refactor: remove useless code"
+    ]
+  },
+  "2025-01-21": {
+    "count": 1,
+    "messages": [
+      "fix: change deprecated --apply flag to --write"
+    ]
+  },
+  "2025-01-19": {
+    "count": 2,
+    "messages": [
+      "fix: display of long equations is cut off (#287)",
+      "fix: output incorrect symbol in console (#290)"
+    ]
+  },
+  "2025-01-17": {
+    "count": 2,
+    "messages": [
+      "fix: remove obsolete astro:after-swap listener",
+      "chore: update dependencies, including Astro v5. (#244)"
+    ]
+  },
+  "2025-01-12": {
+    "count": 1,
+    "messages": [
+      "fix: search component missing from PROD environment (#268)"
+    ]
+  },
+  "2025-01-13": {
+    "count": 1,
+    "messages": [
+      "feat: self-host KaTeX CSS (#279)"
+    ]
+  },
+  "2024-12-31": {
+    "count": 4,
+    "messages": [
+      "fix: add padding to ButtonLink badge div (#251)",
+      "fix: revise TOC logic (#252)",
+      "feat: add Thai translation (#264)",
+      "fix: removing pointer-events from BackToTop wrapper (#259)"
+    ]
+  },
+  "2024-12-07": {
+    "count": 4,
+    "messages": [
+      "fix: fix incorrect TOC highlight (fix #249)",
+      "fix: small bugs with GitHub repo cards (fix #242)",
+      "fix: fix TOC highlight appearing on pages without a TOC",
+      "fix: fix TOC highlight for non-ASCII titles (#246)"
+    ]
+  },
+  "2024-12-06": {
+    "count": 3,
+    "messages": [
+      "fix: fix incorrect position of TOC indicator",
+      "feat: improve the style of the TOC component",
+      "feat: TOC highlight and scroll sync (#216)"
+    ]
+  },
+  "2024-12-04": {
+    "count": 1,
+    "messages": [
+      "feat: add post update date (#243)"
+    ]
+  },
+  "2024-12-02": {
+    "count": 1,
+    "messages": [
+      "refactor: css cleanup and style tweaks"
+    ]
+  },
+  "2024-12-01": {
+    "count": 1,
+    "messages": [
+      "chore: enforce pnpm usage (#238)"
+    ]
+  },
+  "2024-11-30": {
+    "count": 1,
+    "messages": [
+      "refactor: upgrade to Svelte v5 (#212)"
+    ]
+  },
+  "2024-11-09": {
+    "count": 1,
+    "messages": [
+      "feat: use server-side date to generate copyright year (#217)"
+    ]
+  },
+  "2024-10-31": {
+    "count": 1,
+    "messages": [
+      "fix: hide TOC in mobile view (#214)"
+    ]
+  },
+  "2024-10-28": {
+    "count": 5,
+    "messages": [
+      "feat: scrolling to the top don't hide the TOC when banner is disabled",
+      "fix: TOC component overflows the webpage (#209)",
+      "fix: fix blurry text caused by `translate`",
+      "feat: add configurations for TOC component",
+      "feat: style tweak"
+    ]
+  },
+  "2024-10-27": {
+    "count": 3,
+    "messages": [
+      "refactor: code cleanup",
+      "chore: update example post",
+      "feat: UX improvements for the TOC component"
+    ]
+  },
+  "2024-10-26": {
+    "count": 9,
+    "messages": [
+      "fix: eliminate blue border in iOS browers (#207)",
+      "fix: fix build error",
+      "fix: missing CSS classes",
+      "Merge branch 'toc-new'",
+      "fix: force override post width"
+    ]
+  },
+  "2024-10-22": {
+    "count": 1,
+    "messages": [
+      "fix: fix footer style (#201)"
+    ]
+  },
+  "2024-09-20": {
+    "count": 4,
+    "messages": [
+      "feat: more readable error message for image not found",
+      "feat: add onload animation for banner",
+      "fix: fix the flickering caused by custom scrollbar initialization (#60)",
+      "fix: fix the top margin of sticky sidebar (#184)"
+    ]
+  },
+  "2024-09-16": {
+    "count": 2,
+    "messages": [
+      "feat: set `og:type` to `article` for posts (#183)",
+      "fix: fix navbar disappearing after link click (#182)"
+    ]
+  },
+  "2024-09-13": {
+    "count": 1,
+    "messages": [
+      "perf: optimizing page transition (#178)"
+    ]
+  },
+  "2024-09-10": {
+    "count": 2,
+    "messages": [
+      "docs: update README",
+      "feat!: front-matter `language` -> `lang`"
+    ]
+  },
+  "2024-09-04": {
+    "count": 3,
+    "messages": [
+      "docs: add Spanish README",
+      "chore(biome): fix deprecated field `trailingComma` (#169)",
+      "fix: fix RSS build error"
+    ]
+  },
+  "2024-08-29": {
+    "count": 1,
+    "messages": [
+      "chore: update dependencies"
+    ]
+  },
+  "2024-08-28": {
+    "count": 2,
+    "messages": [
+      "fix: errors when `themeColor.fixed` is set to `true` (#160)",
+      "refactor: improve type safety (#155)"
+    ]
+  },
+  "2024-08-27": {
+    "count": 2,
+    "messages": [
+      "feat: add Spanish i18n (#157)",
+      "feat: add language as post property (#151)"
+    ]
+  },
+  "2024-08-23": {
+    "count": 1,
+    "messages": [
+      "fix: fix GitHub repo card not loading with empty description (#154)"
+    ]
+  },
+  "2024-08-06": {
+    "count": 1,
+    "messages": [
+      "perf: preload PhotoSwipe instead of waiting for user click"
+    ]
+  },
+  "2024-08-03": {
+    "count": 2,
+    "messages": [
+      "fix: fix errors and reformat code",
+      "feat: use the first paragraph as the excerpt if `description` is not set"
+    ]
+  },
+  "2024-08-02": {
+    "count": 1,
+    "messages": [
+      "feat: style tweaks"
+    ]
+  },
+  "2024-07-28": {
+    "count": 3,
+    "messages": [
+      "feat: some improvements for image zooming",
+      "fix: set the zoom width and height for network image (#136)",
+      "feat: add photoswipe for image zoom (#135)"
+    ]
+  },
+  "2024-07-27": {
+    "count": 3,
+    "messages": [
+      "feat!: add credit configurations for banner image",
+      "feat: increase height of the banner on the homepage",
+      "fix: `siteConfig.banner.position` not working"
+    ]
+  },
+  "2024-07-26": {
+    "count": 3,
+    "messages": [
+      "chore: update dependencies",
+      "fix: fix CDN link for katex",
+      "chore: ignore errors when CSS files don't need compression"
+    ]
+  },
+  "2024-07-22": {
+    "count": 1,
+    "messages": [
+      "docs: update README"
+    ]
+  },
+  "2024-07-21": {
+    "count": 3,
+    "messages": [
+      "refactor: improve code quality",
+      "refactor: improve code quality",
+      "feat: add Korean i18n & README (#130)"
+    ]
+  },
+  "2024-07-20": {
+    "count": 2,
+    "messages": [
+      "fix: sort post list in RSS by time and exclude draft posts",
+      "fix: failed GitHub API requests no longer break the href of repo card & style tweak"
+    ]
+  },
+  "2024-06-30": {
+    "count": 1,
+    "messages": [
+      "feat: style improvements (mainly animations)"
+    ]
+  },
+  "2024-06-22": {
+    "count": 4,
+    "messages": [
+      "feat: improve button animation",
+      "feat: add support for GitHub style admonition syntax",
+      "fix: custom scrollbar does not reload after page switch",
+      "fix: extra empty lines in codeblocks still displayed in some cases"
+    ]
+  },
+  "2024-06-21": {
+    "count": 6,
+    "messages": [
+      "fix: style tweaks for copy-code button",
+      "feat: copy button for code blocks (#67)",
+      "fix: add missing i18n for `Search` (#102)",
+      "fix: hide the extra empty line in code blocks",
+      "chore: upgrade dependencies"
+    ]
+  },
+  "2024-06-10": {
+    "count": 1,
+    "messages": [
+      "feat: add option `position` for banner image (#106)"
+    ]
+  },
+  "2024-06-08": {
+    "count": 1,
+    "messages": [
+      "fix: profile-card style tweak"
+    ]
+  },
+  "2024-06-07": {
+    "count": 1,
+    "messages": [
+      "fix: fix a style bug in the tag list (#41, #93)"
+    ]
+  },
+  "2024-06-06": {
+    "count": 2,
+    "messages": [
+      "feat: light/dark modes switch immediately with the system theme (#95)",
+      "feat: enhanced meta for social sharing (part 1) (#66)"
+    ]
+  },
+  "2024-05-25": {
+    "count": 1,
+    "messages": [
+      "fix: fix base path not applied to mobile nav menu"
+    ]
+  },
+  "2024-05-03": {
+    "count": 2,
+    "messages": [
+      "docs: update example posts",
+      "fix: some fixes for admonition and GitHub repo card"
+    ]
+  },
+  "2024-05-02": {
+    "count": 1,
+    "messages": [
+      "feat: add GitHub repo card, admonitions (#77)"
+    ]
+  },
+  "2024-05-01": {
+    "count": 3,
+    "messages": [
+      "docs: add some comments to `config.ts`",
+      "feat: option to control whether site visitors can change the theme color (#28)",
+      "fix: set html lang to siteConfig lang (#73)"
+    ]
+  },
+  "2024-04-29": {
+    "count": 5,
+    "messages": [
+      "feat: basic post structured data for SEO",
+      "fix: make `base` in astro config work",
+      "chore: temporarily suppress dynamic import warning",
+      "fix: load stored theme before rendering",
+      "fix: style tweak"
+    ]
+  },
+  "2024-04-28": {
+    "count": 1,
+    "messages": [
+      "feat: option to follow the system-wide light/dark mode (#71)"
+    ]
+  },
+  "2024-04-27": {
+    "count": 1,
+    "messages": [
+      "Add a description in Japanese. (#27)"
+    ]
+  },
+  "2024-04-26": {
+    "count": 1,
+    "messages": [
+      "feat: using rel=\"me\" to verify ownership for websites (#62)"
+    ]
+  },
+  "2024-04-23": {
+    "count": 3,
+    "messages": [
+      "feat: multiple custom favicons",
+      "feat: allow user to customize favicon (#47)",
+      "feat: add dynamic descript to meta head (#56)"
+    ]
+  },
+  "2024-04-22": {
+    "count": 3,
+    "messages": [
+      "fix: we're in 2024 :) (#51)",
+      "feat: add sitemap.xml (#33)",
+      "feat: add RSS xml (#34)"
+    ]
+  },
+  "2024-04-07": {
+    "count": 1,
+    "messages": [
+      "docs: update README"
+    ]
+  },
+  "2024-04-06": {
+    "count": 1,
+    "messages": [
+      "docs:optimized usage instructions"
+    ]
+  },
+  "2024-04-05": {
+    "count": 1,
+    "messages": [
+      "docs: update example posts"
+    ]
+  },
+  "2024-03-17": {
+    "count": 1,
+    "messages": [
+      "docs: update README"
+    ]
+  },
+  "2024-03-14": {
+    "count": 1,
+    "messages": [
+      "chore: update dependencies"
+    ]
+  },
+  "2024-03-13": {
+    "count": 1,
+    "messages": [
+      "fix: onload animation tweaks"
+    ]
+  },
+  "2024-03-12": {
+    "count": 4,
+    "messages": [
+      "feat: onload animation for article pages",
+      "feat: onload animation",
+      "feat: use Swug for transition animations instead of ViewTransitions",
+      "fix: a11y fixes"
+    ]
+  },
+  "2024-02-22": {
+    "count": 1,
+    "messages": [
+      "chore: remove sharp dependency"
+    ]
+  },
+  "2024-02-18": {
+    "count": 4,
+    "messages": [
+      "fix: minor fixes",
+      "refactor: code cleanup",
+      "refactor: rewrite DisplaySettings and Search using Svelte",
+      "fix: url `/page/1` -> `/`, `/page/2` -> `/2`"
+    ]
+  },
+  "2024-02-12": {
+    "count": 1,
+    "messages": [
+      "fix: fix widget content collapsing not working"
+    ]
+  },
+  "2024-01-25": {
+    "count": 2,
+    "messages": [
+      "feat: add line numbers for code blocks",
+      "fix: don't load Pagefind and return fake search results for dev environment"
+    ]
+  },
+  "2024-01-24": {
+    "count": 1,
+    "messages": [
+      "feat: implement post search using Pagefind (#12)"
+    ]
+  },
+  "2024-01-22": {
+    "count": 4,
+    "messages": [
+      "fix: don't initialize the overlay scrollbar if there is a native one",
+      "fix: fix custom code font doesn't work",
+      "feat: mobile style improvements",
+      "feat: much better mobile view design (#11)"
+    ]
+  },
+  "2024-01-21": {
+    "count": 4,
+    "messages": [
+      "docs: update example posts",
+      "feat: make 'uncategorized' a category",
+      "fix: minor fixes",
+      "feat: add FrontMatter CMS, biome, translation, etc."
+    ]
+  },
+  "2023-12-28": {
+    "count": 1,
+    "messages": [
+      "feat: use relative paths for cover images"
+    ]
+  },
+  "2023-12-14": {
+    "count": 1,
+    "messages": [
+      "feat: remove support for nested categories"
+    ]
+  },
+  "2023-11-25": {
+    "count": 1,
+    "messages": [
+      "doc: update README"
+    ]
+  },
+  "2023-11-23": {
+    "count": 2,
+    "messages": [
+      "fix: make heading anchors `#` unselectable",
+      "fix: back-to-top button breaks layout"
+    ]
+  },
+  "2023-11-12": {
+    "count": 2,
+    "messages": [
+      "fix: some style fixes for the license block",
+      "feat: add heading anchor links"
+    ]
+  },
+  "2023-11-10": {
+    "count": 3,
+    "messages": [
+      "fix: add JetBrains Mono as default code font",
+      "chore: update dependencies",
+      "fix: update code font (#4)"
+    ]
+  },
+  "2023-11-09": {
+    "count": 1,
+    "messages": [
+      "fix: fix build fail"
+    ]
+  },
+  "2023-11-08": {
+    "count": 5,
+    "messages": [
+      "chore: update dependencies",
+      "fix: site url and base dir should be set in astro.config.mjs",
+      "feat: overlay scrollbar",
+      "feat: overlay scrollbar",
+      "fix: style improvements"
+    ]
+  },
+  "2023-11-07": {
+    "count": 1,
+    "messages": [
+      "feat: add front-matter variable `category`"
+    ]
+  },
+  "2023-11-06": {
+    "count": 2,
+    "messages": [
+      "fix: style improvements for mobile view",
+      "feat: nav-menu for mobile view"
+    ]
+  },
+  "2023-11-03": {
+    "count": 3,
+    "messages": [
+      "fix: markdown style for the About page",
+      "feat: style improvements",
+      "feat: add license block"
+    ]
+  },
+  "2023-10-29": {
+    "count": 2,
+    "messages": [
+      "fix: missing reading time plugin",
+      "feat: remark-math rehype-katex katex (#2)"
+    ]
+  },
+  "2023-10-23": {
+    "count": 2,
+    "messages": [
+      "fix: temporary solution for images dynamic import",
+      "feat: use .ts instead of .yaml for configurations"
+    ]
+  },
+  "2023-10-22": {
+    "count": 1,
+    "messages": [
+      "Update README.md"
+    ]
+  },
+  "2023-10-21": {
+    "count": 1,
+    "messages": [
+      "fix: front-matter prop change"
+    ]
+  },
+  "2023-10-20": {
+    "count": 2,
+    "messages": [
+      "chore: create LICENSE",
+      "fix: accessibility fixes"
+    ]
+  },
+  "2023-10-19": {
+    "count": 2,
+    "messages": [
+      "feat: add the example post about embed video",
+      "fix: appearance setting not correctly set at first time & something else"
+    ]
+  },
+  "2023-10-18": {
+    "count": 7,
+    "messages": [
+      "feat: minor fixes",
+      "feat: update README",
+      "feat: regularize front-matter, add new-post command",
+      "fix: minor fixes",
+      "doc: update README"
+    ]
+  },
+  "2023-10-16": {
+    "count": 1,
+    "messages": [
+      "feat: style and animation improvements"
+    ]
+  },
+  "2023-10-11": {
+    "count": 2,
+    "messages": [
+      "feat: sticky navbar and sidebar, minor fixes",
+      "feat: allow collapsing widget content, add categories widget"
+    ]
+  },
+  "2023-10-06": {
+    "count": 4,
+    "messages": [
+      "fix: make tag sorting case-insensitive, fix wrong url",
+      "feat: post styles and transition improvements",
+      "fix: temporary solution for ViewTransitions flickr issue",
+      "feat: i18n, page title"
+    ]
+  },
+  "2023-10-04": {
+    "count": 1,
+    "messages": [
+      "feat: style improvements"
+    ]
+  },
+  "2023-10-02": {
+    "count": 1,
+    "messages": [
+      "feat: post styles, next/prev post btn, display-settings, etc."
+    ]
+  },
+  "2023-09-29": {
+    "count": 1,
+    "messages": [
+      "feat: back-to-top, footer, about page, responsive design, etc."
+    ]
+  },
+  "2023-09-26": {
+    "count": 1,
+    "messages": [
+      "feat: initial commit"
+    ]
+  }
+}
