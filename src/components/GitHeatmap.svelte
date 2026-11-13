@@ -233,7 +233,7 @@ function handleFilterChange(filter: string) {
 					博客修改热力图
 				</h2>
 				<p class="text-xs text-black/50 dark:text-white/50">
-					真实同步本仓库 Git Commit 维护轨迹
+					真实记录博主在当前仓库的 Git 提交轨迹
 				</p>
 			</div>
 		</div>
@@ -280,7 +280,7 @@ function handleFilterChange(filter: string) {
 			</div>
 		</div>
 		<div class="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5">
-			<div class="text-xs text-black/50 dark:text-white/50">建站全期总计</div>
+			<div class="text-xs text-black/50 dark:text-white/50">博主累计提交</div>
 			<div class="text-lg font-bold text-black/80 dark:text-white/80 mt-0.5">
 				{totalCommits} <span class="text-xs font-normal text-black/50 dark:text-white/50">次</span>
 			</div>
