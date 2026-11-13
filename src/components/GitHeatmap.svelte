@@ -7,7 +7,7 @@ export interface CommitDayInfo {
 }
 
 export let commitsByDate: Record<string, CommitDayInfo> = {};
-export let totalCommits: number = 0;
+export let totalCommits = 0;
 export let availableYears: string[] = [];
 
 interface DayCell {
@@ -19,11 +19,6 @@ interface DayCell {
 	month: number;
 	isFuture: boolean;
 	isOutOfRange: boolean;
-}
-
-interface MonthHeader {
-	colIndex: number;
-	name: string;
 }
 
 const WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
@@ -42,7 +37,7 @@ const MONTH_NAMES = [
 	"12月",
 ];
 
-let selectedFilter: string = "recent";
+let selectedFilter = "recent";
 let scrollContainer: HTMLDivElement | null = null;
 
 // Tooltip state
@@ -151,8 +146,8 @@ $: gridData = (() => {
 		cur.setDate(cur.getDate() + 1);
 	}
 
-	// Month header positions
-	const monthHeaders: MonthHeader[] = [];
+	// Month header positions keyed by week column index
+	const monthHeaderMap: Record<number, string> = {};
 	let lastMonth = -1;
 	weeks.forEach((week, index) => {
 		// If week contains a first day of month or month changes
@@ -162,17 +157,14 @@ $: gridData = (() => {
 		});
 
 		if (firstDayOfMonthInWeek && firstDayOfMonthInWeek.month !== lastMonth) {
-			monthHeaders.push({
-				colIndex: index,
-				name: MONTH_NAMES[firstDayOfMonthInWeek.month],
-			});
+			monthHeaderMap[index] = MONTH_NAMES[firstDayOfMonthInWeek.month];
 			lastMonth = firstDayOfMonthInWeek.month;
 		}
 	});
 
 	return {
 		weeks,
-		monthHeaders,
+		monthHeaderMap,
 		periodTotal,
 		periodActiveDays,
 		periodMaxDay,
@@ -187,20 +179,36 @@ function getLevel(count: number): number {
 	return 4;
 }
 
-function handleMouseEnter(day: DayCell, event: MouseEvent) {
+function showTooltip(day: DayCell, event: MouseEvent | FocusEvent) {
 	if (day.isFuture || day.isOutOfRange) return;
 	hoveredDay = day;
 
 	const target = event.currentTarget as HTMLElement;
 	const rect = target.getBoundingClientRect();
-	tooltipX = rect.left + rect.width / 2;
+	const rawX = rect.left + rect.width / 2;
+	const margin = 110;
+	tooltipX =
+		typeof window !== "undefined"
+			? Math.max(margin, Math.min(window.innerWidth - margin, rawX))
+			: rawX;
 	tooltipY = rect.top - 8;
 	isTooltipVisible = true;
 }
 
-function handleMouseLeave() {
+function hideTooltip() {
 	isTooltipVisible = false;
 	hoveredDay = null;
+}
+
+function portal(node: HTMLElement) {
+	document.body.appendChild(node);
+	return {
+		destroy() {
+			if (node.parentNode) {
+				node.parentNode.removeChild(node);
+			}
+		},
+	};
 }
 
 function scrollToRecent() {
@@ -223,7 +231,7 @@ function handleFilterChange(filter: string) {
 	<!-- Top Title & Filter Bar -->
 	<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
 		<div class="flex items-center gap-2.5">
-			<div class="w-8 h-8 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center">
+			<div class="heatmap-icon w-8 h-8 rounded-lg flex items-center justify-center">
 				<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
 					<path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
 				</svg>
@@ -291,21 +299,23 @@ function handleFilterChange(filter: string) {
 	>
 		<div class="min-w-fit flex flex-col gap-1.5 select-none">
 			<!-- Month Header Row -->
-			<div class="flex items-center text-[10px] text-black/40 dark:text-white/40 h-4 pl-7 relative">
-				{#each gridData.monthHeaders as header}
-					<span
-						class="absolute font-medium"
-						style="left: calc(1.75rem + {header.colIndex * 15.5}px);"
-					>
-						{header.name}
-					</span>
+			<div class="flex gap-1.5 items-center text-[10px] text-black/40 dark:text-white/40 h-4">
+				<div class="w-6 shrink-0"></div>
+				{#each gridData.weeks as _, colIndex}
+					<div class="w-3 md:w-3.5 shrink-0 relative h-4">
+						{#if gridData.monthHeaderMap[colIndex]}
+							<span class="absolute left-0 top-0 whitespace-nowrap font-medium leading-4">
+								{gridData.monthHeaderMap[colIndex]}
+							</span>
+						{/if}
+					</div>
 				{/each}
 			</div>
 
 			<!-- Weeks Grid with Left Weekday Labels -->
 			<div class="flex gap-1.5 items-start">
 				<!-- Left Weekday Labels (Mon, Wed, Fri) -->
-				<div class="flex flex-col gap-1.5 text-[9px] text-black/35 dark:text-white/35 pr-1 py-[1px] w-6 text-right leading-none select-none">
+				<div class="flex flex-col gap-1.5 text-[9px] text-black/35 dark:text-white/35 pr-1 py-[1px] w-6 shrink-0 text-right leading-none select-none">
 					<span class="h-3 md:h-3.5 flex items-center justify-end opacity-0">日</span>
 					<span class="h-3 md:h-3.5 flex items-center justify-end">一</span>
 					<span class="h-3 md:h-3.5 flex items-center justify-end opacity-0">二</span>
@@ -317,22 +327,20 @@ function handleFilterChange(filter: string) {
 
 				<!-- Columns of Weeks -->
 				{#each gridData.weeks as week}
-					<div class="flex flex-col gap-1.5">
+					<div class="flex flex-col gap-1.5 shrink-0">
 						{#each week as day}
 							{#if day.isFuture || day.isOutOfRange}
 								<div class="w-3 h-3 md:w-3.5 md:h-3.5 rounded-[3px] opacity-0 pointer-events-none"></div>
 							{:else}
 								<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 								<div
-									class="w-3 h-3 md:w-3.5 md:h-3.5 rounded-[3px] transition-all duration-150 cursor-pointer
-										{day.count === 0 ? 'bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.03] dark:border-white/[0.04]' : ''}
-										{getLevel(day.count) === 1 ? 'bg-[var(--primary)]/25 border border-[var(--primary)]/30' : ''}
-										{getLevel(day.count) === 2 ? 'bg-[var(--primary)]/50 border border-[var(--primary)]/55' : ''}
-										{getLevel(day.count) === 3 ? 'bg-[var(--primary)]/75 border border-[var(--primary)]/80 text-white' : ''}
-										{getLevel(day.count) === 4 ? 'bg-[var(--primary)] border border-[var(--primary)] shadow-sm' : ''}
-										hover:scale-125 hover:z-20 hover:ring-2 hover:ring-[var(--primary)]/40"
-									on:mouseenter={(e) => handleMouseEnter(day, e)}
-									on:mouseleave={handleMouseLeave}
+									class="heatmap-cell w-3 h-3 md:w-3.5 md:h-3.5 rounded-[3px] transition-all duration-150 cursor-pointer
+										{day.count === 0 ? 'bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.03] dark:border-white/[0.04]' : `heatmap-level-${getLevel(day.count)}`}
+										hover:scale-125 hover:z-20"
+									on:mouseenter={(e) => showTooltip(day, e)}
+									on:mouseleave={hideTooltip}
+									on:focus={(e) => showTooltip(day, e)}
+									on:blur={hideTooltip}
 									role="gridcell"
 									tabindex="0"
 									aria-label="{day.dateStr}: {day.count} 次提交"
@@ -353,10 +361,10 @@ function handleFilterChange(filter: string) {
 		<div class="flex items-center gap-1.5">
 			<span class="text-[11px]">少</span>
 			<div class="w-3 h-3 rounded-[3px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.03] dark:border-white/[0.04]"></div>
-			<div class="w-3 h-3 rounded-[3px] bg-[var(--primary)]/25 border border-[var(--primary)]/30"></div>
-			<div class="w-3 h-3 rounded-[3px] bg-[var(--primary)]/50 border border-[var(--primary)]/55"></div>
-			<div class="w-3 h-3 rounded-[3px] bg-[var(--primary)]/75 border border-[var(--primary)]/80"></div>
-			<div class="w-3 h-3 rounded-[3px] bg-[var(--primary)] border border-[var(--primary)]"></div>
+			<div class="w-3 h-3 rounded-[3px] heatmap-level-1"></div>
+			<div class="w-3 h-3 rounded-[3px] heatmap-level-2"></div>
+			<div class="w-3 h-3 rounded-[3px] heatmap-level-3"></div>
+			<div class="w-3 h-3 rounded-[3px] heatmap-level-4"></div>
 			<span class="text-[11px]">多</span>
 		</div>
 	</div>
@@ -365,13 +373,14 @@ function handleFilterChange(filter: string) {
 <!-- Floating Tooltip -->
 {#if isTooltipVisible && hoveredDay}
 	<div
+		use:portal
 		class="fixed z-[100] -translate-x-1/2 -translate-y-full pointer-events-none transition-all duration-75 ease-out"
 		style="left: {tooltipX}px; top: {tooltipY}px;"
 	>
 		<div class="bg-white/95 dark:bg-[#1a1b26]/95 backdrop-blur-md text-black/90 dark:text-white/90 shadow-2xl border border-black/10 dark:border-white/10 rounded-xl px-3.5 py-2.5 text-xs max-w-xs sm:max-w-sm">
 			<div class="font-bold text-black/85 dark:text-white/85 flex items-center justify-between gap-3 pb-1 border-b border-black/10 dark:border-white/10">
 				<span>{hoveredDay.formattedDate}</span>
-				<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold {hoveredDay.count > 0 ? 'bg-[var(--primary)]/15 text-[var(--primary)]' : 'bg-black/5 dark:bg-white/10 text-black/40 dark:text-white/40'}">
+				<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold {hoveredDay.count > 0 ? 'heatmap-badge-active' : 'bg-black/5 dark:bg-white/10 text-black/40 dark:text-white/40'}">
 					{hoveredDay.count} 次提交
 				</span>
 			</div>
@@ -400,5 +409,35 @@ function handleFilterChange(filter: string) {
 .hide-scrollbar {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+}
+.heatmap-icon {
+	background-color: color-mix(in srgb, var(--primary) 12%, transparent);
+	color: var(--primary);
+}
+.heatmap-level-1 {
+	background-color: color-mix(in srgb, var(--primary) 28%, transparent);
+	border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+}
+.heatmap-level-2 {
+	background-color: color-mix(in srgb, var(--primary) 52%, transparent);
+	border: 1px solid color-mix(in srgb, var(--primary) 60%, transparent);
+}
+.heatmap-level-3 {
+	background-color: color-mix(in srgb, var(--primary) 76%, transparent);
+	border: 1px solid color-mix(in srgb, var(--primary) 82%, transparent);
+}
+.heatmap-level-4 {
+	background-color: var(--primary);
+	border: 1px solid var(--primary);
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.heatmap-cell:hover,
+.heatmap-cell:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 45%, transparent);
+}
+.heatmap-badge-active {
+	background-color: color-mix(in srgb, var(--primary) 15%, transparent);
+	color: var(--primary);
 }
 </style>

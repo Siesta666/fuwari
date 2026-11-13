@@ -1,222 +1,158 @@
 {
-  "2026-11-13": {
-    "count": 2,
-    "messages": [
-      "feat: 仅筛选并展示博主个人在本 fork 仓库的 Commit 记录",
-      "feat: 在 About 页面下方新增 Git 博客修改热力图组件"
-    ]
-  },
-  "2026-11-10": {
-    "count": 2,
-    "messages": [
-      "Merge branch 'main' of github.com:Siesta666/fuwari",
-      "update"
-    ]
-  },
-  "2026-11-09": {
-    "count": 1,
-    "messages": [
-      "update"
-    ]
-  },
-  "2026-11-06": {
-    "count": 4,
-    "messages": [
-      "feat: 填入 Giscus categoryId 并正式激活博客评论区",
-      "perf: 添加图片自动化就地压缩脚本并优化全站已有大图 (节省约30MB空间)",
-      "feat: 集成 Giscus 评论系统并支持明暗主题动态切换",
-      "Update"
-    ]
-  },
-  "2026-11-05": {
-    "count": 5,
-    "messages": [
-      "update",
-      "chore: 修改统一文章标题",
-      "update",
-      "feat: 更新配置文件，修改视图，增加目录页面",
-      "update"
-    ]
-  },
-  "2026-11-04": {
-    "count": 2,
-    "messages": [
-      "feat: 添加博客置顶功能与知乎链接，更新博客内容",
-      "update"
-    ]
-  },
-  "2026-11-02": {
-    "count": 1,
-    "messages": [
-      "update"
-    ]
-  },
-  "2026-10-31": {
-    "count": 1,
-    "messages": [
-      "update"
-    ]
-  },
-  "2026-10-30": {
-    "count": 1,
-    "messages": [
-      "update"
-    ]
-  },
-  "2026-10-29": {
-    "count": 4,
-    "messages": [
-      "update",
-      "update",
-      "update",
-      "update"
-    ]
-  },
-  "2026-10-28": {
-    "count": 1,
-    "messages": [
-      "update"
-    ]
-  },
-  "2026-10-27": {
-    "count": 2,
-    "messages": [
-      "update",
-      "Update from macbook 2026/10/27"
-    ]
-  },
-  "2026-10-22": {
-    "count": 1,
-    "messages": [
-      "Update from Windows PC 2026/10/22"
-    ]
-  },
-  "2026-10-21": {
-    "count": 4,
-    "messages": [
-      "update from macbook 2026/10/21",
-      "Merge branch 'main' of github.com:Siesta666/fuwari",
-      "Update from my windows PC 2026/10/21",
-      "Update from macbook 2026/10/21"
-    ]
-  },
-  "2026-10-20": {
-    "count": 1,
-    "messages": [
-      "Update/10/20"
-    ]
-  },
-  "2026-10-19": {
-    "count": 1,
-    "messages": [
-      "Update 2026/10/19"
-    ]
-  },
-  "2026-10-12": {
-    "count": 1,
-    "messages": [
-      "Update 2026/10/12"
-    ]
-  },
-  "2026-10-10": {
-    "count": 2,
-    "messages": [
-      "Update 2026/10/10",
-      "Update 2026/10/10"
-    ]
-  },
-  "2026-10-07": {
-    "count": 1,
-    "messages": [
-      "Update 2026/10/7"
-    ]
-  },
-  "2026-09-23": {
-    "count": 3,
-    "messages": [
-      "Update 2026/9/23",
-      "Update 2026/9/23",
-      "Update 2026/9/23"
-    ]
-  },
-  "2026-09-07": {
-    "count": 1,
-    "messages": [
-      "Update 2026/9/7"
-    ]
-  },
-  "2026-09-05": {
-    "count": 2,
-    "messages": [
-      "Update 2026/9/5",
-      "Update 2026/9/5"
-    ]
-  },
-  "2026-09-03": {
-    "count": 1,
-    "messages": [
-      "update 2026/9/13"
-    ]
-  },
-  "2026-08-20": {
-    "count": 2,
-    "messages": [
-      "Update 8/20",
-      "Update 8/20"
-    ]
-  },
-  "2026-08-19": {
-    "count": 4,
-    "messages": [
-      "Update 8/19",
-      "Update a note of statistic mechanics",
-      "Fix",
-      "Update the previous blogs"
-    ]
-  },
-  "2026-08-13": {
-    "count": 2,
-    "messages": [
-      "fix: 页面跳转后重新加载访客计数",
-      "chore: 忽略 pnpm 缓存与 wrangler 临时文件"
-    ]
-  },
-  "2026-08-09": {
-    "count": 1,
-    "messages": [
-      "添加访客计数功能"
-    ]
-  },
-  "2026-07-24": {
-    "count": 1,
-    "messages": [
-      "set the default theme -- DARK"
-    ]
-  },
-  "2026-07-23": {
-    "count": 1,
-    "messages": [
-      "add the friendlinks"
-    ]
-  },
-  "2026-07-22": {
-    "count": 1,
-    "messages": [
-      "fix"
-    ]
-  },
-  "2026-07-21": {
-    "count": 3,
-    "messages": [
-      "fix",
-      "fix",
-      "init"
-    ]
-  },
-  "2025-04-05": {
-    "count": 1,
-    "messages": [
-      "Update WidgetLayout.astro (#333)"
-    ]
-  }
+	"2026-11-13": {
+		"count": 3,
+		"messages": [
+			"style: 将热力图标题修改为 Commit History 并移除描述",
+			"feat: 仅筛选并展示博主个人在本 fork 仓库的 Commit 记录",
+			"feat: 在 About 页面下方新增 Git 博客修改热力图组件"
+		]
+	},
+	"2026-11-10": {
+		"count": 2,
+		"messages": ["Merge branch 'main' of github.com:Siesta666/fuwari", "update"]
+	},
+	"2026-11-09": {
+		"count": 1,
+		"messages": ["update"]
+	},
+	"2026-11-06": {
+		"count": 4,
+		"messages": [
+			"feat: 填入 Giscus categoryId 并正式激活博客评论区",
+			"perf: 添加图片自动化就地压缩脚本并优化全站已有大图 (节省约30MB空间)",
+			"feat: 集成 Giscus 评论系统并支持明暗主题动态切换",
+			"Update"
+		]
+	},
+	"2026-11-05": {
+		"count": 5,
+		"messages": [
+			"update",
+			"chore: 修改统一文章标题",
+			"update",
+			"feat: 更新配置文件，修改视图，增加目录页面",
+			"update"
+		]
+	},
+	"2026-11-04": {
+		"count": 2,
+		"messages": ["feat: 添加博客置顶功能与知乎链接，更新博客内容", "update"]
+	},
+	"2026-11-02": {
+		"count": 1,
+		"messages": ["update"]
+	},
+	"2026-10-31": {
+		"count": 1,
+		"messages": ["update"]
+	},
+	"2026-10-30": {
+		"count": 1,
+		"messages": ["update"]
+	},
+	"2026-10-29": {
+		"count": 4,
+		"messages": ["update", "update", "update", "update"]
+	},
+	"2026-10-28": {
+		"count": 1,
+		"messages": ["update"]
+	},
+	"2026-10-27": {
+		"count": 2,
+		"messages": ["update", "Update from macbook 2026/10/27"]
+	},
+	"2026-10-22": {
+		"count": 1,
+		"messages": ["Update from Windows PC 2026/10/22"]
+	},
+	"2026-10-21": {
+		"count": 4,
+		"messages": [
+			"update from macbook 2026/10/21",
+			"Merge branch 'main' of github.com:Siesta666/fuwari",
+			"Update from my windows PC 2026/10/21",
+			"Update from macbook 2026/10/21"
+		]
+	},
+	"2026-10-20": {
+		"count": 1,
+		"messages": ["Update/10/20"]
+	},
+	"2026-10-19": {
+		"count": 1,
+		"messages": ["Update 2026/10/19"]
+	},
+	"2026-10-12": {
+		"count": 1,
+		"messages": ["Update 2026/10/12"]
+	},
+	"2026-10-10": {
+		"count": 2,
+		"messages": ["Update 2026/10/10", "Update 2026/10/10"]
+	},
+	"2026-10-07": {
+		"count": 1,
+		"messages": ["Update 2026/10/7"]
+	},
+	"2026-09-23": {
+		"count": 3,
+		"messages": ["Update 2026/9/23", "Update 2026/9/23", "Update 2026/9/23"]
+	},
+	"2026-09-07": {
+		"count": 1,
+		"messages": ["Update 2026/9/7"]
+	},
+	"2026-09-05": {
+		"count": 2,
+		"messages": ["Update 2026/9/5", "Update 2026/9/5"]
+	},
+	"2026-09-03": {
+		"count": 1,
+		"messages": ["update 2026/9/13"]
+	},
+	"2026-08-20": {
+		"count": 2,
+		"messages": ["Update 8/20", "Update 8/20"]
+	},
+	"2026-08-19": {
+		"count": 4,
+		"messages": [
+			"Update 8/19",
+			"Update a note of statistic mechanics",
+			"Fix",
+			"Update the previous blogs"
+		]
+	},
+	"2026-08-13": {
+		"count": 2,
+		"messages": [
+			"fix: 页面跳转后重新加载访客计数",
+			"chore: 忽略 pnpm 缓存与 wrangler 临时文件"
+		]
+	},
+	"2026-08-09": {
+		"count": 1,
+		"messages": ["添加访客计数功能"]
+	},
+	"2026-07-24": {
+		"count": 1,
+		"messages": ["set the default theme -- DARK"]
+	},
+	"2026-07-23": {
+		"count": 1,
+		"messages": ["add the friendlinks"]
+	},
+	"2026-07-22": {
+		"count": 1,
+		"messages": ["fix"]
+	},
+	"2026-07-21": {
+		"count": 3,
+		"messages": ["fix", "fix", "init"]
+	},
+	"2025-04-05": {
+		"count": 1,
+		"messages": ["Update WidgetLayout.astro (#333)"]
+	}
 }
