@@ -230,11 +230,8 @@ function handleFilterChange(filter: string) {
 			</div>
 			<div>
 				<h2 class="text-lg md:text-xl font-bold text-black/85 dark:text-white/85 flex items-center gap-2">
-					博客修改热力图
+					Commit History
 				</h2>
-				<p class="text-xs text-black/50 dark:text-white/50">
-					真实记录博主在当前仓库的 Git 提交轨迹
-				</p>
 			</div>
 		</div>
 

@@ -1,7 +1,8 @@
 {
   "2026-11-13": {
-    "count": 1,
+    "count": 2,
     "messages": [
+      "feat: 仅筛选并展示博主个人在本 fork 仓库的 Commit 记录",
       "feat: 在 About 页面下方新增 Git 博客修改热力图组件"
     ]
   },
