@@ -1,5 +1,5 @@
 <script lang="ts">
-import { onMount } from "svelte";
+import { onMount, tick } from "svelte";
 
 export interface CommitDayInfo {
 	count: number;
@@ -61,10 +61,26 @@ function formatDisplayDate(d: Date): string {
 	return `${y}年${m}月${day}日 · ${w}`;
 }
 
+function parseIsoDate(dateStr: string): Date {
+	const [y, m, d] = dateStr.split("-").map((v) => Number.parseInt(v, 10));
+	return new Date(y, (m || 1) - 1, d || 1);
+}
+
 // Build weeks grid
 $: gridData = (() => {
-	const today = new Date();
-	const todayStr = toDateString(today);
+	const localToday = new Date();
+	const localTodayStr = toDateString(localToday);
+	const commitDates = Object.keys(commitsByDate)
+		.filter(
+			(d) =>
+				/^\d{4}-\d{2}-\d{2}$/.test(d) && (commitsByDate[d]?.count || 0) > 0,
+		)
+		.sort();
+	const maxCommitDate = commitDates[commitDates.length - 1] || "";
+	const todayStr =
+		maxCommitDate > localTodayStr ? maxCommitDate : localTodayStr;
+	const today =
+		maxCommitDate > localTodayStr ? parseIsoDate(maxCommitDate) : localToday;
 	let startDate: Date;
 	let endDate: Date;
 
@@ -217,13 +233,26 @@ function scrollToRecent() {
 	}
 }
 
+function scrollToStart() {
+	if (scrollContainer) {
+		scrollContainer.scrollLeft = 0;
+	}
+}
+
 onMount(() => {
 	scrollToRecent();
 });
 
-function handleFilterChange(filter: string) {
+async function handleFilterChange(filter: string) {
 	selectedFilter = filter;
-	setTimeout(scrollToRecent, 50);
+	hideTooltip();
+	await tick();
+	const currentYear = String(new Date().getFullYear());
+	if (filter === "recent" || filter === currentYear) {
+		scrollToRecent();
+	} else {
+		scrollToStart();
+	}
 }
 </script>
 
@@ -295,6 +324,7 @@ function handleFilterChange(filter: string) {
 	<!-- Heatmap Container -->
 	<div
 		bind:this={scrollContainer}
+		on:scroll={hideTooltip}
 		class="w-full overflow-x-auto hide-scrollbar pb-2 pt-1"
 	>
 		<div class="min-w-fit flex flex-col gap-1.5 select-none">

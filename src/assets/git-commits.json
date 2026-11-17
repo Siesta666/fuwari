@@ -1,7 +1,23 @@
 {
-	"2026-11-13": {
-		"count": 3,
+	"2026-11-17": {
+		"count": 5,
 		"messages": [
+			"Merge branch 'main' of github.com:Siesta666/fuwari",
+			"update 2026/11/17 windows",
+			"fix: 修复博客中数学公式环境问题",
+			"update 2026/11/17",
+			"update"
+		]
+	},
+	"2026-11-16": {
+		"count": 1,
+		"messages": ["update"]
+	},
+	"2026-11-13": {
+		"count": 5,
+		"messages": [
+			"fix: 移除一篇多出来的博客",
+			"fix: 修复 Commit History 热力图颜色不显示、浅克隆丢失历史与 Tooltip 偏移问题",
 			"style: 将热力图标题修改为 Commit History 并移除描述",
 			"feat: 仅筛选并展示博主个人在本 fork 仓库的 Commit 记录",
 			"feat: 在 About 页面下方新增 Git 博客修改热力图组件"
