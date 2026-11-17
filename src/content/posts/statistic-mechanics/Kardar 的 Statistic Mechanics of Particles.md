@@ -27,6 +27,7 @@ image: ./3.jpg
 $$
 T(K) = 273.16 \times \big( \lim_{P \rightarrow 0}(PV)_{system} / lim_{P\rightarrow0}(PV)_w\big).
 $$
+
 ### 热力学第一定律
 
 **热力学第一定律**对应的是能量守恒定律，如果使用数学微分形式表示就是：
@@ -34,6 +35,7 @@ $$
 \text{d}E = \text{đ} Q + \text{đ} W
 $$
 注意：在此处并没有指明微元功是体积功，事实上在不同的系统，功的形式有很大差别：
+
 - 线   广义力为张力  广义位移是长度
 - 面  广义力是表面张力  广义位移是面积
 - 流体  广义力是压强  广义位移是体积
@@ -41,6 +43,7 @@ $$
 - 电介质  广义力是电场强度  广义位移是极化强度
 - 化学反应  广义力是化学势  广义位移是反应粒子个数
 不同的系统有不同的功的表现形式，在经典热力学中常见的功的表现形式是**体积功**：
+
 $$
 \text{đ}W = -P \mathrm{d} V
 $$
@@ -65,11 +68,13 @@ C_{P} - C_{V} = P\frac{ \partial V }{ \partial T }_{P} = PV\alpha_{P} = \nu R = 
 $$
 这里面引入了一个新的响应函数 $\alpha_{P}$ 这是**等压压缩系数**：
 $$
-\alpha_{P} = \frac{\dfrac{ \partial V }{ \partial T }_{P}}{V} 
+\alpha_{P} = \frac{\dfrac{ \partial V }{ \partial T }_{P}}{V}
 $$
+
 ### 热力学第二定律
 
 **热力学第二定律**揭示了自然界中的热现象都是具有方向性的，比如热量都是从高温物体向低温物体转移……对于热力学第二定律有许多阐述：
+
 - **开尔文阐述**： 不存在可以将热完全转化成功而不产生其他影响的过程 ***（No process is possible whose sole result is the complete conversion of heat into work）***
 - **克劳修斯阐述**：热量不可以自发地从高温物体向低温物体转移 ***（No process is possible whose sole result is the transfer of heat from a colder to a hotter body）***
 开尔文表述决定了热机的效率，克劳修斯表述决定了制冷机的效率，我们可以通过构造热机或者制冷机来证明这两种表述是完全等价的。
@@ -86,6 +91,7 @@ $$
 #### 卡诺定理
 
 **卡诺定理（Carrot theorem）** 是卡诺推导证明的关于热机效率的定理，其内容是：
+
 - 在两个热库之间工作效率最高的热机是卡诺热机
 
 如果多个卡诺热机相互串联，每一个卡诺热机的高温热库都是上一个卡诺热机的低温热库，则总效率还是只和首尾高温低温热源相关，此处使用熵变可以证明
@@ -99,7 +105,7 @@ $$
 ### 熵
 
 之前我们已经得到了许多共轭变量比如：压强和体积、电场强度和极化强度……那么温度的共轭变量是什么呢？我们有**克劳修斯定理**：
-	对于任何一个循环，必有 $\oint \text{đ} Q / T \leq 0$ ，当循环是可逆循环时取到等号
+ 对于任何一个循环，必有 $\oint \text{đ} Q / T \leq 0$ ，当循环是可逆循环时取到等号
 于是我们就可以得到一个状态函数，其定义是：
 $$
 \mathrm{d}S = \frac{\text{đ}Q_{rev}}{T}
@@ -109,7 +115,7 @@ $$
 对于一个可逆过程，我们可以写出热力学第一定律：
 $$
 \mathrm{d}E = \text{đ}Q + \text{đ}W = T\mathrm{d}S + \sum J_{i}\mathrm{d}x_{i}
-$$ 
+$$
 我们可以发现此处的温度扮演广义力，是强度量；熵变扮演广义位移，是广延量，我们成功将力学和热学进行统一。
 **Noting：** 虽然此处指的是可逆循环，但是这是状态函数的关系，对于状态函数我们不需要关注过程，只需要关注首尾状态。
 
@@ -163,6 +169,7 @@ $$
 $$
 \mathrm{d} H = T \mathrm{d} S - \sum x_{i} \mathrm{d}J_{i} = T\mathrm{d}S - \mathbf{x}\cdot \mathrm{d}\mathbf{J}
 $$
+
 ### 亥姆霍兹自由能
 
 适用于等温、无机械功系统，定义 **亥姆霍兹自由能（Helmholtz free energy）** 为
@@ -179,7 +186,7 @@ $$
 $$
 于是我们有：
 $$
-\mathrm{d}F = \mathrm{d}E - T\mathrm{d}S \leq 0 
+\mathrm{d}F = \mathrm{d}E - T\mathrm{d}S \leq 0
 $$
 当系统处于热平衡，得到：
 $$
@@ -207,6 +214,7 @@ $$
 ### Summary
 
 这些热力学势其实都是熵的变体，我们使用了**勒让德变换（Legendre Transformation）** 变换了变量集，这里稍作总结：
+
 - 绝热、等容、使用熵$S$、变量集选择$(S, x_{i})$
 - 绝热、等压、使用焓$H$、变量集选择$(S, J_{i})$
 - 等温、等容、使用亥姆霍兹自由能$F$、变量集选择$(T,x_{i})$
@@ -249,7 +257,7 @@ E(\lambda S, \lambda x_{i}, \lambda N) = \lambda E(S, x_{i}, N)
 $$
 两边对$\lambda$求导，代入$\lambda = 1$得到
 $$
-\frac{ \partial E }{ \partial S }S + \frac{ \partial E }{ \partial x_{i} } x_{i}+ \frac{ \partial E }{ \partial N } N = E 
+\frac{ \partial E }{ \partial S }S + \frac{ \partial E }{ \partial x_{i} } x_{i}+ \frac{ \partial E }{ \partial N } N = E
 $$
 代入我们由热力学第一定律得到的式子：
 $$
@@ -269,7 +277,7 @@ $$
 
 由吉布斯-杜亥姆关系，可以得到：
 $$
-N\mathrm{d} \mu = V\mathrm{d}P 
+N\mathrm{d} \mu = V\mathrm{d}P
 $$
 代入$PV = \nu R T$
 $$
@@ -292,12 +300,12 @@ $$
 \mathrm{d}E &= T\mathrm{d}S + J \mathrm{d}x + \mu \mathrm{d}N \\ \\
 \mathrm{d}H &= T\mathrm{d}S - x \mathrm{d}J + \mu \mathrm{d}N \\ \\
 \mathrm{d}F &= -S\mathrm{d}T + J\mathrm{d}x + \mu \mathrm{d}N\\ \\
-\mathrm{d}G &= -S\mathrm{d}T - x\mathrm{d}J + \mu \mathrm{d}N 
+\mathrm{d}G &= -S\mathrm{d}T - x\mathrm{d}J + \mu \mathrm{d}N
 \end{aligned}
 $$
 我们就以内能 $E$ 举例子：
 $$
-\frac{ \partial E }{ \partial S }_{x, N} = T \quad \frac{ \partial E }{ \partial x } _{S, N} = J 
+\frac{ \partial E }{ \partial S }_{x, N} = T \quad \frac{ \partial E }{ \partial x } _{S, N} = J
 $$
 于是我们得到二阶导数：
 $$
@@ -324,6 +332,7 @@ $$
 可以看到水的三相点的自由度为0，所以使得三相点十分鲁棒，如果在水中溶解了少量的盐，那么三相点就会沿着相对应的线运动（导致盐水熔点降低）
 
 ### 平衡的稳定性
+
 	对应于汪志诚的 3.1 节
 
 对于一个热力学系统，我们有这样一种判断**稳定平衡**的方法：
@@ -355,13 +364,14 @@ $$
 中间项可以通过麦克斯韦关系消除
 
 这个式子包含了三个平衡条件
+
 - 热平衡条件
 - 力学平衡条件
 - 化学平衡条件
 
 热平衡条件：当只有 $\delta T$ 不为 0 时，为了保持平衡，需要有：
 $$
-\frac{ \partial S }{ \partial T }_{x} > 0 
+\frac{ \partial S }{ \partial T }_{x} > 0
 $$
 等价于
 $$
@@ -373,16 +383,17 @@ $$
 
 力学平衡和化学平衡可以看作是相似的，我们都可以把其看作是广义位移和广义力的共轭作用。拿气体系统举例子，考虑只有 $\delta x_{i}$ 不为 0 的情况，需要有：
 $$
-\frac{ \partial J_{i} }{ \partial x_{j} }\delta x_{i}\delta x_{j} > 0 
+\frac{ \partial J_{i} }{ \partial x_{j} }\delta x_{i}\delta x_{j} > 0
 $$
 根据线性代数，可以知道这是一个二次型矩阵，要让多项式恒大于0，那么矩阵需要为正定的：
 $$
 \begin{bmatrix}
 -\dfrac{ \partial p }{ \partial V }  & -\dfrac{ \partial p }{ \partial N } \\ \\
-\dfrac{ \partial \mu }{ \partial V } & \dfrac{ \partial \mu }{ \partial N } 
+\dfrac{ \partial \mu }{ \partial V } & \dfrac{ \partial \mu }{ \partial N }
 \end{bmatrix}
 $$
 为一个正定矩阵，考虑最简单的情况，也就是只有 $(p, V)$ 一组共轭量，那么需要有 $\dfrac{\partial p}{\partial V} < 0$ ，也就是如果系统因为某一种原因体积变小，那么压强应该变大来保持系统平衡。
+
 #### 关于临界点 Critical Point
 
 对于非理想气体，比如范德瓦尔斯气体，其相图会存在**临界点（Critical Point）** ，此处我们讲的就是气液相变临界点，当气体在等温线上变化，总会存在一个点使得：
@@ -391,11 +402,11 @@ $$
 $$
 此时我们考虑力学稳定性，也就是 $\delta P \delta V > 0$，假设压强可以进行泰勒展开，于是得到：
 $$
-\delta P(T = T_{c}) = \frac{ \partial P }{ \partial V } _{T_{c}, N}\delta V + \frac{1}{2}\frac{ \partial ^2P }{ \partial V^2 } _{T_{c}, N}\delta V^2 + \frac{1}{6}\frac{ \partial ^3P }{ \partial V^3 }_{T_{c},N}\delta V^3+\dots 
+\delta P(T = T_{c}) = \frac{ \partial P }{ \partial V } _{T_{c}, N}\delta V + \frac{1}{2}\frac{ \partial ^2P }{ \partial V^2 } _{T_{c}, N}\delta V^2 + \frac{1}{6}\frac{ \partial ^3P }{ \partial V^3 }_{T_{c},N}\delta V^3+\dots
 $$
 为了保持力学稳定性，必须使得二阶导数为0，那么我们就得到了临界点的定义。
 $$
-\frac{ \partial P }{ \partial V } _{T_{c}} = 0 \quad \frac{ \partial^2 P }{ \partial V^2 }_{T_{c}} = 0 
+\frac{ \partial P }{ \partial V } _{T_{c}} = 0 \quad \frac{ \partial^2 P }{ \partial V^2 }_{T_{c}} = 0
 $$
 在临界温度以下，等温线会出现一个 "S" 形，  大于临界温度时，气液界限消失。
 
@@ -408,6 +419,7 @@ $$
 我们有几种方法可以论证热力学第三定律，比如构造亚平衡态等等
 
 此处列出热力学第三定律带来的结果：
+
 - 在趋向绝对零度时，熵对于任何参数的导数为0  $\lim_{ T \to 0 }\dfrac{ \partial S }{ \partial X }_{T} = 0$
 - 趋向绝对零度时，热容为0   $\lim_{ T \to 0 }C_{x} = 0$
 - 在趋向绝对零度时，热膨胀系数为0   $\alpha_{J} = \dfrac{1}{x}\dfrac{ \partial x }{ \partial T }_{J} - \dfrac{1}{x}\dfrac{ \partial S }{ \partial J }_{T} = 0$
@@ -427,16 +439,19 @@ $$
 热力学基本定律是建立在对于微观粒子的观察和统计概括，另一方面，物质是由原子和分子组成的，它们的运动规律受到更加基本的定律支配，所以我们有方法可以对粒子运动进行分析。我们不需要知道系统中每一个粒子的具体情况，这基本是不可能的，我们只需要知道粒子处于某一个微观状态的 **可能性（likelihood）** 即可，因此统计力学本质上是对系统的一种**概率性描述**。
 
 概率论要研究的对象是随机变量，它有一系列可能值，可能是:
+
 - 离散值：比如硬币的正反两面、骰子的六个面等
 - 连续值：比如一个区间 $[1,2]$ 。
 每一个事件都是结果的子集，我们要计算事件发生的概率，将事件记为 $E$， 将概率记为 $p(E)$.
 
 事件的概率必须要满足以下条件：
+
 - 概率必须为正数，$p(E) \geq 0$。
 - 归一性：$\sum p(E_{i} = 1)$，所有事件的总概率必须为1
 - 可加性：如果两个事件是不相关事件，那么 $p(A \text{ or } B) = p(A) + p(B)$
 
 为了得到某一个事件的概率，有两种方法：
+
 - 客观概率来自对某一事件大量重复得到概率：$p(A) = \lim\limits_{ N \to \infty } \dfrac{N_{A}}{N}$
 - 主观概率提供一个基于理论的概率值，比如一个骰子投到1的概率就是 $\dfrac{1}{6}$
 给定一个随机变量 $x$ ，其可能取值为 $\mathcal{S} = {-\infty < x < + \infty}$
@@ -444,6 +459,7 @@ $$
 - **概率密度函数（probability density function）** 是描述随机变量取到单位长度区间的概率
 - **期望值（the expectation value）** 是描述随机变量进行大量取值之后的平均值，使用 $\langle F(x) \rangle$ 表示
 如果给定一个新的随机变量，其取值与随机变量 $x$ 相关，比如 $y = x^2$ ，那么我们可以写出其概率密度函数：
+
 $$
 p(y)_{y =x_{0}^2} \mathrm{d}y= prob(y = x_{0} ^2) = prob(x = x_{0} \text{ or } -x_{0}) = \sum p(x)\mathrm{d}x
 $$
@@ -469,7 +485,7 @@ e^{-ikx} = \sum_{n=0}^{\infty}  \frac{1}{n!}(-ikx)^n
 $$
 于是我们得到了 $\tilde{p}(k)$
 $$
-\tilde{p}(k) = \sum \int \frac{(-ik)^n}{n!}x^n p(x) \mathrm{d}x = \sum_{n=0}^{\infty}  \frac{(-ik)^n}{n!}\langle x^n \rangle 
+\tilde{p}(k) = \sum \int \frac{(-ik)^n}{n!}x^n p(x) \mathrm{d}x = \sum_{n=0}^{\infty}  \frac{(-ik)^n}{n!}\langle x^n \rangle
 $$
 所以我们对**特征函数求导**就可以得到矩：
 $$
@@ -529,7 +545,7 @@ $$
 $$
 求二阶导数：
 $$
-\langle x^2 \rangle_{c} = \sigma^2 
+\langle x^2 \rangle_{c} = \sigma^2
 $$
 后续所有的累计概率函数均为 $0$，正态分布完全由其前两个累积量确定，我们可以简单地计算出矩：
 $$
@@ -540,6 +556,7 @@ $$
 \dots
 \end{align*}
 $$
+
 ### 二项分布
 
 二项分布描述了只有两种取值的随机变量，设事件为 $A,B$ ，概率分别是 $p_{A}, p_{B} = 1- p_{A}$ ，在 $N$ 次试验中，取到 $N_{A}$ 次 $A$ 事件的概率为：
@@ -562,7 +579,7 @@ $$
 
 那我们就可以很简单的求出 $N$ 次试验之后的期望和方差，设事件 $A$ 为取到 $1$，事件 $B$ 为取到 $0$：
 $$
-\langle x \rangle_{c}  = Np_{A}, \quad \langle x^{2} \rangle _{c} = N(p_{A} - p_{A}^{2}) 
+\langle x \rangle_{c}  = Np_{A}, \quad \langle x^{2} \rangle _{c} = N(p_{A} - p_{A}^{2})
 $$
 二项分布也可以推广到多项分布。
 
@@ -613,7 +630,7 @@ $$
 $$
 所以我们可以计算出泊松分布的累积量是一个常数
 $$
-\langle x^{n} \rangle _{c} = \alpha T 
+\langle x^{n} \rangle _{c} = \alpha T
 $$
 从本质上来看，泊松分布是二项分布的极限情况，当二项分布的 $N \to \infty, p \to 0$ 同时 $Np = const = T \alpha$ 那么二项分布就会演化成泊松分布。此时二项分布的各累积量也都等于 $Np = \alpha T$
 
@@ -635,6 +652,7 @@ $$
 $$
 \fbox{泊松过程的等待时间满足指数分布，其中 $\lambda = t / \tau$}
 $$
+
 ### 各个分布之间的关系
 
 二项分布：
@@ -651,14 +669,13 @@ P_{N}(k) = \frac{1}{\sqrt{ 2\pi \lambda }}\exp\left( -\frac{(k-\lambda)^2}{2\lam
 $$
 可以看出来，此时为正态分布 $k \sim N(\lambda,\lambda)$ ，那么发生 $\lambda$ 次事件的概率密度还是最大的，并且由于 $\lambda \to \infty$，无意义的负数部分概率很小，不会影响估算。
 
-
 ## 多重变量分布
 
 当涉及到超过一个变量的时候，比如同时描述粒子的速度与位置，需要使用到 $N$ 维空间的概率分布函数。
 
 **联合概率密度函数**是随机变量 $x$ 在点 $\mathbf{x} = \{x_{1}, x_{2},\dots, x_{N}\}$附近的概率密度，归一化表示为：
 $$
-\int_{\mathcal{S}} \mathrm{d}^{N}\mathbf{x}p(\mathbf{x}) =1 
+\int_{\mathcal{S}} \mathrm{d}^{N}\mathbf{x}p(\mathbf{x}) =1
 $$
 如果各个维度的变量是独立的，那么我们就可以得到：
 $$
@@ -692,27 +709,27 @@ $$
 
 函数的**期望值**为：
 $$
-\langle F(x) \rangle = \int \mathrm{d}^{N}\mathbf{x}p(\mathbf{x})F(\mathbf{x}) 
+\langle F(x) \rangle = \int \mathrm{d}^{N}\mathbf{x}p(\mathbf{x})F(\mathbf{x})
 $$
 **联合特征函数**为：
 $$
-\tilde{p}(\mathbf{k}) = \langle e^{-i\mathbf{k}\cdot \mathbf{x}} \rangle 
+\tilde{p}(\mathbf{k}) = \langle e^{-i\mathbf{k}\cdot \mathbf{x}} \rangle
 $$
 **联合矩与联合累积量为：**
 $$
-\langle x_1^{n_1} x_2^{n_2} \cdots x_N^{n_N} \rangle = 
-\left[ \frac{\partial}{\partial (-ik_1)} \right]^{n_1} 
-\left[ \frac{\partial}{\partial (-ik_2)} \right]^{n_2} 
-\cdots 
-\left[ \frac{\partial}{\partial (-ik_N)} \right]^{n_N} 
+\langle x_1^{n_1} x_2^{n_2} \cdots x_N^{n_N} \rangle =
+\left[ \frac{\partial}{\partial (-ik_1)} \right]^{n_1}
+\left[ \frac{\partial}{\partial (-ik_2)} \right]^{n_2}
+\cdots
+\left[ \frac{\partial}{\partial (-ik_N)} \right]^{n_N}
 \tilde{p}(\mathbf{k} = \mathbf{0}),
 $$
 $$
-\langle x_1^{n_1} * x_2^{n_2} * \cdots x_N^{n_N} \rangle_c = 
-\left[ \frac{\partial}{\partial (-ik_1)} \right]^{n_1} 
-\left[ \frac{\partial}{\partial (-ik_2)} \right]^{n_2} 
-\cdots 
-\left[ \frac{\partial}{\partial (-ik_N)} \right]^{n_N} 
+\langle x_1^{n_1} * x_2^{n_2} * \cdots x_N^{n_N} \rangle_c =
+\left[ \frac{\partial}{\partial (-ik_1)} \right]^{n_1}
+\left[ \frac{\partial}{\partial (-ik_2)} \right]^{n_2}
+\cdots
+\left[ \frac{\partial}{\partial (-ik_N)} \right]^{n_N}
 \ln \tilde{p}(\mathbf{k} = \mathbf{0}).
 $$
 其中对于两个变量的二阶累积量我们称之为协方差：
@@ -739,11 +756,12 @@ $$
 $$
 \langle x_{a}x_{b}x_{c}x_{d} \rangle  = C_{ab}C_{cd}+ C_{ac}C_{bd} + C_{ad}C_{bc}
 $$
+
 ## 随机变量的和与中心极限定理
 
 考虑多个随机变量的和 $X = \sum_{i=1}^{N}x_{i}$，它的概率密度是：
 $$
-p_{X}(x) = \int \prod_{i=1}^{N-1}\mathrm{d}x_{i}p(x_{1} \dots, x_{N-1}, x-x_{1}-x_{2}\dots-x_{N-1}) 
+p_{X}(x) = \int \prod_{i=1}^{N-1}\mathrm{d}x_{i}p(x_{1} \dots, x_{N-1}, x-x_{1}-x_{2}\dots-x_{N-1})
 $$
 那么它的特征函数是：
 $$
@@ -751,7 +769,7 @@ $$
 $$
 对累积量生成函数进行泰勒展开：
 $$
-\ln \tilde{p}(k) = -ik\sum_{i_{1}=1}^{N}\langle x_{i_{1}} \rangle_{c} + \frac{(-ik)^{2}}{2}\sum_{i_{1}, i_{2}}^{N} \langle x_{i_{1}}x_{i_{2}} \rangle _{c} + \dots   
+\ln \tilde{p}(k) = -ik\sum_{i_{1}=1}^{N}\langle x_{i_{1}} \rangle_{c} + \frac{(-ik)^{2}}{2}\sum_{i_{1}, i_{2}}^{N} \langle x_{i_{1}}x_{i_{2}} \rangle _{c} + \dots
 $$
 我们得到平均值和方差：
 $$
@@ -759,7 +777,7 @@ $$
 $$
 如果这些随机变量相互独立，那么协方差是0（因为没有相关性），于是累积量就只是各个随机变量的简单相加：
 $$
-\langle X^{N} \rangle _{c} = \sum_{i=1}^{N} \langle x^{N}_{i} \rangle _{c} 
+\langle X^{N} \rangle _{c} = \sum_{i=1}^{N} \langle x^{N}_{i} \rangle _{c}
 $$
 当所有的随机变量都来自于同一类试验，比如是二项分布，那么求和符号可以去掉：
 $$
@@ -791,10 +809,11 @@ $$
 y = \frac{X-N\mu}{\sqrt{ N }}
 $$
 其中 $\mu$ 为随机变量 $x$ 的平均值。所以易得 $E(y) = 0$，接下来可以来计算累积量：由特征函数可以看出 $\langle X^n \rangle_{c} \propto N$，所以 $\langle y^n \rangle_{c}\propto N^{1-n/2}$，当 $N$ 趋向 $\infty$ 时，如果 $n>2$ 那么可以发现 $\langle y^n \rangle_{c} \to 0$，那么根据累积量的性质，就可以反推出变量 $y$ 的分布情况，我们来总结一下：
+
 - $y$ 的均值为 $0$
 - $y$ 的方差为和随机变量 $x$ 的方差是一样的
 - $y$ 的三阶及以上的累积量都是 $0$
-所以 $y$ 满足正态分布，这就是**中心极限定理（central limit theorem）**
+所以 $y$ 满足正态分布，这就是**中心极限定理（central limit theorem）**，利用 $y$ 的正态分布特性，我们可以近似给出 $X$ 的分布情况，使用中心极限定理可以估算多个随机变量的线性组合，也可以用于抽样调查中，反推出受调查量的均值。
 
 :::attention
 这里的推导假设了随机变量的统计量都是有限值，但是事实上，并不是所有的分布都满足这个条件，比如 $p(x) = \dfrac{1}{\pi(1 + y^2)}$ 此时累积量也是无穷，那么中心极限定理就不再成立了。
@@ -803,6 +822,7 @@ $$
 :::tip
 中心极限定理不要求各个随机变量都是完全独立的，只需要满足 $\sum \langle x_{i_{1}}x_{i_{2}}\dots x_{i_{m}} \rangle_{c} \ll \mathcal{O}\left( N^{\frac{m}{2}} \right)$ 就行了，这个条件可以让除了二阶累积量之外的所有都趋向于0
 :::
+
 ## 大数处理方法
 
 在统计力学中我们要处理大量粒子，所以概率中的 $N$ 通常趋向于正无穷，在热力学中，有三种典型 $N$ 依赖参数：
@@ -813,7 +833,7 @@ $$
 
 在统计力学中，我们常常要处理指数变量的和与积分，接下来有几个简单的处理可以简化计算：
 
-### 指数量的求和：
+### 指数量的求和
 
 考虑对于随机变量的求和：
 $$
@@ -831,6 +851,7 @@ $$
 $$
 \lim_{ N \to \infty } \frac{\ln \mathcal{S}}{N} = \phi_{max}
 $$
+
 ### 鞍点积分
 
 当我们计算积分：
@@ -839,7 +860,7 @@ $$
 $$
 如上，我们设出最大值，将积分变换成：
 $$
-\mathcal{J} = \int \mathrm{d}x \exp \left[ \phi(x_{max}) + \frac{1}{2}\phi^{\prime\prime}(x_{max})(x - x_{max})^{2}\dots \right] 
+\mathcal{J} = \int \mathrm{d}x \exp \left[ \phi(x_{max}) + \frac{1}{2}\phi^{\prime\prime}(x_{max})(x - x_{max})^{2}\dots \right]
 $$
 忽略高阶项，使用高斯积分估计，可以计算出（由于是最大值，一阶导数为0，二阶导数小于零）：
 $$
@@ -853,6 +874,7 @@ $$
 $$
 \frac{\ln \mathcal{S}}{N} = \phi(x_{max})
 $$
+
 ### 斯特林公式
 
 我们有：
@@ -863,10 +885,11 @@ $$
 $$
 \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-ax} = \frac{N!}{a^{N+1}}
 $$
-代入 $a = 1$ 得到:  $N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-x}$，我们可以设一个连续函数来表示阶乘：
+代入 $a = 1$ 得到:  $N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-x}$，我们可以设一个连续函数来表示阶乘:
 $$
 \Gamma(N+1) = N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-x} = \int_{0}^\infty \mathrm{d}x \exp(-x + N\ln x)
-$$利用上一节得到的估算方法，我们知道如果可以将积分表示成 $\int \mathrm{d}x \exp(N \phi(x))$ 的形式的话，可以简化处理。
+$$
+利用上一节得到的估算方法，我们知道如果可以将积分表示成 $\int \mathrm{d}x \exp(N \phi(x))$ 的形式的话，可以简化处理。
 
 于是我们有
 $$
@@ -882,15 +905,15 @@ $$
 $$
 使用鞍点积分可以估计很多随机变量求和。
 
-# 气体动理论
+# Kinetic Theory of Gases 气体动理论
 
-### 引言
+## 引言
 
 在宏观层面上来描述一个热力学系统的方法在第一章已经作过简单介绍，我们可以使用熵、焓、自由能等函数来判断系统的平衡，那么在微观层面上，我们可以使用分子间的相互作用和动力学来解释，这种解释较宏观层面更加底层和基础。其中最容易研究的系统是稀薄气体系统，我们引入相图，在任何时间，我们可以用 $N$ 个粒子的动量和位矢来表示出系统的状态，其中动量和位矢满足哈密顿方程：
 $$
 \begin{align}
 &\dot{q_{i}} = \frac{ \partial \mathcal{H} }{ \partial p_{i} }  \\ \\
-&\dot{p_{i}} = - \frac{ \partial \mathcal{H} }{ \partial q_{i} } 
+&\dot{p_{i}} = - \frac{ \partial \mathcal{H} }{ \partial q_{i} }
 \end{align}
 $$
 其中哈密顿量 $\mathcal{H}$ 是系统的总能量，并且哈密顿方程满足时间反演对称性，即 $p \to -p, \text{when t = 0}$ 那么粒子将会重走来路：$q(t) = q(-t)$ 也就是说哈密顿量在 $(p, q) \to (-p, q)$ 变换下保持协变。
@@ -900,7 +923,7 @@ $$
 \langle \mathcal{O} \rangle  = \int \mathrm{d}\Gamma \rho(\mathbf{p}, \mathbf{q},t)\mathcal{O}(\mathbf{p}, \mathbf{q})
 $$
 
-### 刘维尔定理
+## 刘维尔定理
 
 在分析力学中我们学习到：相空间随着时间的演化本身就是一种正则变换，而正则变换不改变相空间的密度，因此我们就得到了刘维尔定理： **相流是一种无法被压缩的流体，相空间体积在演化过程中保持守恒**
 
@@ -916,8 +939,7 @@ $$
 $$
 \begin{align}
 
-
-\mathrm{d}q_{i}^{\prime} = \mathrm{d}q_{i} + \frac{ \partial \dot{q_{i}} }{ \partial q_{i} }\mathrm{d}q_{i}\delta t +\mathcal{O}(\delta t^{2}) \\ 
+\mathrm{d}q_{i}^{\prime} = \mathrm{d}q_{i} + \frac{ \partial \dot{q_{i}} }{ \partial q_{i} }\mathrm{d}q_{i}\delta t +\mathcal{O}(\delta t^{2}) \\
 \mathrm{d}p_{i}^{\prime} = \mathrm{d}  p_{i}+ \frac{ \partial \dot{p_{i}} }{ \partial p_{i} } \mathrm{d}p_{i}\delta t +\mathcal{O}(\delta t^{2})
 
 \end{align}
@@ -948,7 +970,7 @@ $$
 $$
 使用分部积分，已知在边界相空间密度为 $0$，于是可以略去第一项。
 $$
-\frac{\mathrm{d}\langle  \mathcal{O} \rangle }{\mathrm{d}t} = \int \mathrm{d}\Gamma \rho \{ \mathcal{O}, \mathcal{H}\} = \langle \{\mathcal{O, H} \} \rangle 
+\frac{\mathrm{d}\langle  \mathcal{O} \rangle }{\mathrm{d}t} = \int \mathrm{d}\Gamma \rho \{ \mathcal{O}, \mathcal{H}\} = \langle \{\mathcal{O, H} \} \rangle
 $$
 系综平均的变化率等于物理量和哈氏量的泊松括号的系综平均值。
 
@@ -960,7 +982,7 @@ $$
 $$
 满足上式的方法有许多，我们可以让 $\rho = \rho(\mathcal{H})$ 这种解说明了相空间密度在$\mathcal{H} = const$ 的超平面上是常量，但是在现实世界中相空间密度并不一定是常数，自然界的演化不一定是均匀的，所以我们这种判断等效于将客观概率替换为主观概率。
 
-### BBGKY层级
+## BBGKY层级
 
 考虑一个粒子出现在 $(\vec{p}, \vec{q}, t)$ 的概率密度 **（One-particle density）**，我不考虑这个粒子是哪一个粒子，我可以对所有粒子进行求和然后求系综平均：
 $$
@@ -968,7 +990,7 @@ f_{1}(\vec{p}, \vec{q}, t) = \langle \sum_{i=1}^{N}  \delta^{3}(\vec{p_{i}}- \ve
 $$
 我们可以进行变形，由于在这里我不用考虑是哪一个粒子，所以我可以直接在积分符号外面乘上 $N$ 来表示上面的累加。
 $$
-f_{1}(\mathbf{p},\mathbf{q},t) = N \int \prod_{i=2}^{N} \mathrm{d}^{3}p_{i}\mathrm{d}^{3}q_{i \rho}(p_{1} = \mathbf{p}, q_{1} = \mathbf{q}, p_{2}, q_{2}, \dots, t) 
+f_{1}(\mathbf{p},\mathbf{q},t) = N \int \prod_{i=2}^{N} \mathrm{d}^{3}p_{i}\mathrm{d}^{3}q_{i \rho}(p_{1} = \mathbf{p}, q_{1} = \mathbf{q}, p_{2}, q_{2}, \dots, t)
 $$
 如果我们将后面的积分单独来看，可以发现这是一个**无条件概率密度**，指的是不考虑 $2-N$ 这些粒子的状态，只看第一个粒子的状态，我们可以将这个概率密度记为 $\rho_{1}$ ，那么有 $f_{1} = N\rho_{1}$ ，也就说如果没有前面的**归一化系数** $N$ 那么得到的只是一个无条件概率
 
@@ -988,9 +1010,9 @@ $$
 $$
 根据刘维尔定理我们知道：
 $$
-\frac{ \partial \rho }{ \partial t }  = -\{\rho, \mathcal{H} \} = \{\mathcal{H}, \rho \}
+\frac{\mathrm{d} \rho}{\mathrm{d} t} = 0\quad;\frac{ \partial \rho }{ \partial t }  = -\{\rho, \mathcal{H} \} = \{\mathcal{H}, \rho \}
 $$
-那么我们就去写出系统的哈密顿量 $\mathcal{H}$，这里的哈密顿量都是与时间无关的。 
+那么我们就去写出系统的哈密顿量 $\mathcal{H}$，这里的哈密顿量都是与时间无关的，代表能量守恒。
 $$
 \mathcal{H} = \sum_{i=1}^{N} \left[ \frac{p_{i}^{2}}{2m} + U(\vec{q_{i}})\right] + \frac{1}{2} \sum_{i,j}^{N} U(\vec{q_{i}}- \vec{q_{j}})
 $$
@@ -1000,7 +1022,7 @@ $$
 $$
 其中：
 $$
-\mathcal{H}_{s} = \sum_{m=1}^{s} \left[ \frac{p_{m}^{2}}{2m} + U(\vec{q_{m}}) \right] + \frac{1}{2}\sum_{n \neq m}^{s} U (\vec{q}_{m}- \vec{q}_{n}) 
+\mathcal{H}_{s} = \sum_{m=1}^{s} \left[ \frac{p_{m}^{2}}{2m} + U(\vec{q_{m}}) \right] + \frac{1}{2}\sum_{n \neq m}^{s} U (\vec{q}_{m}- \vec{q}_{n})
 $$
 同理于 $\mathcal{H}_{N-s}$，$\mathcal{H}_{int er}$ 等于剩下的交叉项，也就是 $s$ 个和 $N-s$ 个粒子的交叉。
 
@@ -1008,7 +1030,7 @@ $$
 $$
 \frac{ \partial f_{s} }{ \partial t } = \frac{N!}{(N-s)!}\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\left\{ \mathcal{H}_{s} + \mathcal{H}_{N-s} + \mathcal{H}_{inter}, \rho \right\}
 $$
-计算第一项：
+使用泊松括号的线性可加性，计算第一项：
 $$
 \int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\{ \mathcal{H}_{s}, \rho\} = \left\{ \mathcal{H}_{s}, \int \prod_{i=s+1}^{N} \mathrm{d}V_{i} \rho \right\} = \{ \mathcal{H}_{s}, \rho_{s}\}
 $$
@@ -1019,16 +1041,16 @@ $$
 $$
 对于第三项，我们也可以使用分部积分的方法计算出来，我们可以得到：
 $$
-\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\{ \mathcal{H}_{in ter}, \rho \} = (N-s) \sum_{n=1}^{s} \int \mathrm{d}V_{s+1}\frac{ \partial \mathcal{V}(\vec{q}_{n} - \vec{q}_{s+1}) }{ \partial \vec{q}_{n} } \cdot \frac{ \partial  }{ \partial \vec{p}_{n} }\left[ \int \prod_{i=s+2}^{N} \mathrm{d}V_{i}\rho \right] 
+\int \prod_{i=s+1}^{N} \mathrm{d}V_{i}\{ \mathcal{H}_{in ter}, \rho \} = (N-s) \sum_{n=1}^{s} \int \mathrm{d}V_{s+1}\frac{ \partial \mathcal{V}(\vec{q}_{n} - \vec{q}_{s+1}) }{ \partial \vec{q}_{n} } \cdot \frac{ \partial  }{ \partial \vec{p}_{n} }\left[ \int \prod_{i=s+2}^{N} \mathrm{d}V_{i}\rho \right]
 $$
-最后那一项是 $s+1$ 个粒子的概率密度
+最后那一项是 $s+1$ 个粒子的概率密度函数：
 $$
-\int \prod_{i=s+2}^{N} \mathrm{d}V_{i}\rho = \rho_{s+1}
+\int \prod_{i=s+2}^{N} \mathrm{d}V_{i}\rho = \rho_{s+1} = f_{s+1} \frac{(N-s-1)!}{N!}
 $$
-整合我们所有的结果我们可以写出：
+整合我们所有的结果，然后把左右两边的无条件概率密度全部替换成我们最先定义出来的 $f$ ，我们可以写出：
 $$
 \frac{ \partial f_{s} }{ \partial t } - \{\mathcal{H}_{s}, f_{s} \} = \sum_{n=1}^{s} \int \mathrm{d}V_{s+1}\frac{ \partial \mathcal{V}(\vec{q}_{n}- \vec{q}_{s+1}) }{ \partial \vec{q}_{n} }\cdot \frac{ \partial f_{s+1} }{ \partial \vec{p_{n}} }  
 $$
-这就是我们想要的**BBGKY层级**，我们想要求出$f_{s}$ 必须先求出 $\frac{ \partial f_{s+1} }{ \partial t }$，那么这个逻辑链会不断向上增加，最终和整一个系统的复杂度相当。
+这就是我们想要的**BBGKY层级**，我们想要求出$f_{s}$ 必须先求出 $\dfrac{ \partial f_{s+1} }{ \partial t }$，那么这个逻辑链会不断向上增加，最终和整一个系统的复杂度相当。
 
-我们也可以从物理角度来理解这个公式：我们选择 $s$ 个粒子作为研究对象，这 $s$ 个粒子的相空间密度按照刘维尔定理，其演化应当是：$\frac{ \partial \rho_{s} }{ \partial t }=\{\mathcal{H}, \rho_{s}\}$，但是这个系统并不是一个稳定均匀的系统，粒子之间会又相互碰撞，所以我们需要引入修正项，这 $s$ 个粒子都可能和剩下来的 $N-s$ 个粒子发生碰撞，这就是等式右边的解释。  
+我们也可以从物理角度来理解这个公式：我们选择 $s$ 个粒子作为研究对象，这 $s$ 个粒子的相空间密度按照刘维尔定理，其演化应当是：$\dfrac{ \partial \rho_{s} }{ \partial t }=\{\mathcal{H}, \rho_{s}\}$，但是这个系统并不是一个稳定均匀的系统，粒子之间会又相互碰撞，所以我们需要引入修正项，这 $s$ 个粒子都可能和剩下来的 $N-s$ 个粒子发生碰撞，这就是等式右边的解释。  
