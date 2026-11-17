@@ -10,7 +10,7 @@ draft: false
 lang: zh-CN
 image: ./3.jpg
 ---
-   # Thermodynamics 热动力学
+# Thermodynamics 热动力学
 
 **——Thermodynamics is a phenomenological description of properties of macroscopic systems in thermal equilibrium.**
 
@@ -778,6 +778,31 @@ $$
 
 多个随机变量只需要满足 $\sum \langle x_{i_{1}}x_{i_{2}}\dots x_{i_{m}} \rangle_{c} \ll \mathcal{O}\left( N^{\frac{m}{2}} \right)$，如果计算多个随机变量的平均值，在试验次数变得无穷多，平均值的分布就会趋向于正态分布。
 
+简单证明：考虑 $N$ 个独立并且满足相同分布的随机变量，记为 $x_{i}$，现在我们需要求出 $X = \sum_{i=1}^{N}x_{i}$的分布情况，使用特征函数法，由前面的结论，可以得知 $X$ 的特征函数等于 $N$ 个随机变量的特征函数的累乘，写成：
+$$
+\tilde{p}_{X}(k) = (\tilde{p}_{x}(k))^N
+$$
+为了分析 $X$ 的分布情况，我们需要知道它的统计量，所以这里计算出累积生成函数：
+$$
+\ln \tilde{p}_{X}(k) = N \ln \tilde{p}_{x}(k) = \sum_{n=0}^{\infty} \frac{(-ik)^n}{n!}\langle X^n \rangle _{c} = N\sum_{n=0}^{\infty} \frac{(-ik)^n}{n!}\langle x^n \rangle _{c}
+$$
+现在设新的随机变量：
+$$
+y = \frac{X-N\mu}{\sqrt{ N }}
+$$
+其中 $\mu$ 为随机变量 $x$ 的平均值。所以易得 $E(y) = 0$，接下来可以来计算累积量：由特征函数可以看出 $\langle X^n \rangle_{c} \propto N$，所以 $\langle y^n \rangle_{c}\propto N^{1-n/2}$，当 $N$ 趋向 $\infty$ 时，如果 $n>2$ 那么可以发现 $\langle y^n \rangle_{c} \to 0$，那么根据累积量的性质，就可以反推出变量 $y$ 的分布情况，我们来总结一下：
+- $y$ 的均值为 $0$
+- $y$ 的方差为和随机变量 $x$ 的方差是一样的
+- $y$ 的三阶及以上的累积量都是 $0$
+所以 $y$ 满足正态分布，这就是**中心极限定理（central limit theorem）**
+
+:::attention
+这里的推导假设了随机变量的统计量都是有限值，但是事实上，并不是所有的分布都满足这个条件，比如 $p(x) = \dfrac{1}{\pi(1 + y^2)}$ 此时累积量也是无穷，那么中心极限定理就不再成立了。
+:::
+
+:::tip
+中心极限定理不要求各个随机变量都是完全独立的，只需要满足 $\sum \langle x_{i_{1}}x_{i_{2}}\dots x_{i_{m}} \rangle_{c} \ll \mathcal{O}\left( N^{\frac{m}{2}} \right)$ 就行了，这个条件可以让除了二阶累积量之外的所有都趋向于0
+:::
 ## 大数处理方法
 
 在统计力学中我们要处理大量粒子，所以概率中的 $N$ 通常趋向于正无穷，在热力学中，有三种典型 $N$ 依赖参数：
