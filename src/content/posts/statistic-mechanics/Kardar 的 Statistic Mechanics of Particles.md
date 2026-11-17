@@ -483,11 +483,15 @@ $$
 $$
 \ln \tilde{p}(k) = \sum_{n=1}^{\infty} \frac{(-ik)^n}{n!}\langle x^n \rangle _{c}
 $$
+类似地，可以计算出：
+$$
+(-i)^n\langle x^n \rangle _{c} = \frac{ \partial^{n}  }{ \partial k^{n} }\tilde{p}(k)
+$$
 我们对左式进行泰勒展开：
 $$
 \ln \tilde{p}(k) = \sum_{n=0}^{\infty} \frac{1}{n!}(\tilde{p}(k)- 1)^n
 $$
-对于次数较低的**累计量（cumulants）**，我们可以直接计算出来：
+使用 $\langle x^n \rangle$ 代替 $\tilde{p}(k)$，对于次数较低的**累计量（cumulants）**，我们可以直接计算出来：
 $$
 \begin{align*}
 \langle x \rangle _c &= \langle x \rangle \\ \\
@@ -772,7 +776,7 @@ $$
 
 ### 中心极限定理
 
-随机变量只需要满足 $\sum \langle x_{i_{1}}x_{i_{2}}\dots x_{i_{m}} \rangle_{c} \ll \mathcal{O}\left( N^{\frac{m}{2}} \right)$，那么我们就可以得到高斯分布。
+多个随机变量只需要满足 $\sum \langle x_{i_{1}}x_{i_{2}}\dots x_{i_{m}} \rangle_{c} \ll \mathcal{O}\left( N^{\frac{m}{2}} \right)$，如果计算多个随机变量的平均值，在试验次数变得无穷多，平均值的分布就会趋向于正态分布。
 
 ## 大数处理方法
 
@@ -786,11 +790,11 @@ $$
 
 ### 指数量的求和：
 
-考虑求和：
+考虑对于随机变量的求和：
 $$
 \mathcal{S} = \sum_{i=1}^{N} \mathcal{E}_{i}
 $$
-其中每一项都大于0，并且指数依赖于 $N$ ，也就是：
+其中每一项都大于0，并且随机变量指数依赖于 $N$ ，也就是：
 $$
 0 \leq \mathcal{E}_{i} \sim \mathcal{O}(\exp(N \phi_{i}))
 $$
@@ -798,7 +802,7 @@ $$
 $$
 \mathcal{E}_{max} \leq \mathcal{S} \leq N \mathcal{E}_{max}
 $$
-强度量可以表示为 $\dfrac{\ln \mathcal{S}}{N}$，于是：
+强度量可以表示为 $\dfrac{\ln \mathcal{S}}{N}$，在 $N \to \infty$ 时，$\dfrac{\ln N}{N} = 0$，于是由夹逼性得到：
 $$
 \lim_{ N \to \infty } \frac{\ln \mathcal{S}}{N} = \phi_{max}
 $$
@@ -812,7 +816,7 @@ $$
 $$
 \mathcal{J} = \int \mathrm{d}x \exp \left[ \phi(x_{max}) + \frac{1}{2}\phi^{\prime\prime}(x_{max})(x - x_{max})^{2}\dots \right] 
 $$
-可以计算出（此时一阶导数为0，二阶导数小于零）：
+忽略高阶项，使用高斯积分估计，可以计算出（由于是最大值，一阶导数为0，二阶导数小于零）：
 $$
 \mathcal{J} \approx e^{N\phi(x_{max})}\int \mathrm{d}x \exp\left[ \frac{N}{2}\phi^{\prime\prime}(x- x_{max})^{2} \right] \approx \sqrt{ \frac{2\pi}{N |\phi^{\prime \prime}(x_{max})|} }e^{N \phi (x_{max})}
 $$
@@ -820,7 +824,10 @@ $$
 $$
 \lim_{ N \to \infty } \frac{\ln \mathcal{J}}{N} = \phi(x_{max})
 $$
-
+于是不论是离散分布还是积分分布，只要我们在求和随机变量 $\mathcal{S}$ ,那么总会出现：
+$$
+\frac{\ln \mathcal{S}}{N} = \phi(x_{max})
+$$
 ### 斯特林公式
 
 我们有：
@@ -833,9 +840,8 @@ $$
 $$
 代入 $a = 1$ 得到:  $N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-x}$，我们可以设一个连续函数来表示阶乘：
 $$
-\Gamma(N+1) = N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-ax} 
-$$
-利用上一节得到的估算方法，我们知道如果可以将积分表示成 $\int \mathrm{d}x \exp(N \phi(x))$ 的形式的话，可以简化处理。
+\Gamma(N+1) = N! = \int_{0}^{\infty}\mathrm{d}x x^{N}e^{-x} = \int_{0}^\infty \mathrm{d}x \exp(-x + N\ln x)
+$$利用上一节得到的估算方法，我们知道如果可以将积分表示成 $\int \mathrm{d}x \exp(N \phi(x))$ 的形式的话，可以简化处理。
 
 于是我们有
 $$
@@ -849,6 +855,7 @@ $$
 $$
 \ln N! = N \ln N - N + \frac{1}{2}\ln (2\pi N) + \mathcal{O}\left( \frac{1}{N} \right)
 $$
+使用鞍点积分可以估计很多随机变量求和。
 
 # 气体动理论
 
