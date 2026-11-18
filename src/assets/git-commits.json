@@ -1,12 +1,12 @@
 {
 	"2026-11-17": {
-		"count": 5,
+		"count": 6,
 		"messages": [
+			"fix: 修复 About 热力图浅克隆漏记 commit、合并去重与时区隐藏问题",
 			"Merge branch 'main' of github.com:Siesta666/fuwari",
 			"update 2026/11/17 windows",
 			"fix: 修复博客中数学公式环境问题",
-			"update 2026/11/17",
-			"update"
+			"update 2026/11/17"
 		]
 	},
 	"2026-11-16": {
@@ -166,9 +166,5 @@
 	"2026-07-21": {
 		"count": 3,
 		"messages": ["fix", "fix", "init"]
-	},
-	"2025-04-05": {
-		"count": 1,
-		"messages": ["Update WidgetLayout.astro (#333)"]
 	}
 }

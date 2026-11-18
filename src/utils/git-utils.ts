@@ -55,14 +55,7 @@ const DATE_PARTS_FORMATTER = new Intl.DateTimeFormat("en-CA", {
 });
 
 // 站长身份标识（用于在 fork 仓库中过滤出站长自己的提交，排除原主题上游贡献者的提交）
-const AUTHOR_IDENTIFIERS = [
-	"siesta",
-	"1169391936",
-	"会做饭的二哈",
-	"baikaiwen12",
-]
-	.filter(Boolean)
-	.map((id) => id.toLowerCase());
+const AUTHOR_IDENTIFIERS = ["siesta", "1169391936"];
 
 function isUserCommit(authorName: string, authorEmail: string): boolean {
 	const name = (authorName || "").toLowerCase();
