@@ -1,11 +1,11 @@
 ---
-title: Notes of Thermal Dynamics and Statistic Mechanics
+title: Notes of Thermal Dynamics and Statistic Mechanics-Part one
 published: 2026-11-15
-description: 热力学和统计物理笔记
+description: 热力学和统计物理笔记-概率论
 tags:
   - 统计力学
 category: 统计力学
-draft: true
+draft: false
 lang: zh-CN
 cover: ./champion.jpg
 ---
@@ -62,7 +62,7 @@ $$
 $$
 p_{Z}(z) = p_{X} *p _{Y}
 $$
-$Z$ 的概率密度函数是 $X,Y$ 的卷积，根据傅里叶变换的性质，可以得到一个结论：
+$Z$ 的概率密度函数是 $X,Y$ 的**卷积**，根据傅里叶变换的性质，可以得到一个结论：
 $$
 \fbox{独立单随机变量的和的特征函数等于各个单随机变量的特征函数的累乘}
 $$
@@ -72,7 +72,7 @@ $$
 $$
 这样可以写出新变量的原点矩和各个统计量。
 
-对于不一样形式的合成，都可以使用分布函数进行讨论计算，比如 $Z = XY$，$Z = \dfrac{X}{Y}$，使用分布函数在二维样本空间中进行区域划分，将 $Z$ 的分布函数积分出来，然后对参数求导，即可获得概率密度函数。
+对于不一样形式的合成，都可以使用**分布函数**进行讨论计算，比如 $Z = XY$，$Z = \dfrac{X}{Y}$，使用分布函数在二维样本空间中进行区域划分，将 $Z$ 的分布函数积分出来，然后对参数求导，即可获得概率密度函数。
 
 还有一种方法：使用Jocbian矩阵来计算联合概率密度，然后对联合概率密度积分得到分布函数，再积分计算出概率密度函数，这种方法在下一节将会讲到。
 
@@ -85,4 +85,120 @@ $$
 
 ### 多维随机变量
 
-多维随机变量可以看作是多个单随机变量的合成，比如已有两个随机变量，
+多维随机变量可以看作是多个单随机变量的合成，比如已有两个随机变量 $X$ 和 $Y$ ，如果我们把 $(X,Y)$ 看作是一个随机变量，这个就是一个二维随机变量，使用**联合分布函数**和**联合概率密度函数**来描述这个向量的分布，将 $F(x,y)$ 记为联合分布函数：
+$$
+F(x,y) = P((X\leq x )\cap(Y \leq y))
+$$
+将 $f(x,y)$ 记为联合概率密度函数：
+$$
+f(x,y) = \frac{\partial ^2F(x,y)}{\partial x\partial y}
+$$
+出于简单考虑，此处的多维随机变量都是连续型随机变量，归一性要求：
+$$
+\iint f(x,y)\mathrm{d}x\mathrm{d}y = 1
+$$
+其中如果我们想要计算出某一个变量的概率分布，那么可以使用**边缘分布函数**，和**边缘概率密度函数**来表示，比如我们要来计算 $X$ 的分布情况，可以表示成：
+$$
+F(x) = \lim_{ y \to \infty }F(x,y) ;\quad f_{X}(x) = \int f(x,y)\mathrm{d}y
+$$
+
+#### 改变基底
+
+一个变量可以使用 $X,Y$ 表示出来，也就可以使用 $u(X,Y),v(X,Y)$ 表示，相当于在坐标系中进行一次坐标变换，根据高维面积表示概率，而概率在变换下保持不变，所以可以得到：
+$$
+f(u,v) = f(x,y)\left \|\frac{ \partial (x,y) }{ \partial (u,v) } \right \|
+$$
+其中因子是 **Jocbian 行列式**，举一个例子，比如我们有 $X,Y$ 变量，我们想要求出 $X+Y$ 这个变量的概率分布，我们可以设 $U = X+Y，V = X$，那么计算出雅可比行列式：
+$$
+|J| = \begin{bmatrix}
+0 & 1 \\
+1 & -1
+\end{bmatrix}
+$$
+计算出:
+$$
+f(u,v) = f(x,y)
+$$
+然后计算出边缘概率密度函数：
+$$
+f(u) = \int f(u,v)\mathrm{d}v = \int f(x,y)\mathrm{d}x = \int f(x, u-x) \mathrm{d}x
+$$
+最终得到的概率密度表达式和使用分布函数计算的结果是一样的。
+
+## 随机变量的数学特征
+
+我们可以使用许多统计量来描述随机变量的特征，比如平均值、方差、协方差等，这一些统计量都与随机变量的数学特征有关，这一节将会介绍随机变量的一些数学特征：
+
+#### 数学期望
+
+**数学期望（expectation）** 的定义为：
+$$
+E(X) = \int p(x)x\mathrm{d}x = \langle x \rangle 
+$$
+期望具有线性可加性：
+$$
+E(X + Y) = E(X )+ E (Y)
+$$
+同时数乘期望得到：
+$$
+E(kX) = kE(X)
+$$
+两个随机变量的乘积期望可以表示成：
+$$
+E(XY) = E(X)E(Y) + \mathrm{Cov}(E,Y)
+$$
+也可以使用期望表示出方差：
+$$
+D(X) = E(X^2) - E(X)^2
+$$
+期望也可以趋向无穷大，这就表明：
+$$
+p(x) \geq \mathcal{O}\left( \frac{1}{x^2} \right)
+$$
+比如随机变量满足：
+$$
+p(x) = \frac{1}{\pi (x^2 + 1 ) }
+$$
+此时计算出的方差和期望都是无穷大。
+
+#### 方差
+
+**方差（variance）** 是用来描述随机变量偏离平均值的程度的，其数学定义为：
+$$
+D(X) = \int p(x)(x- \langle x \rangle )^2\mathrm{d}x
+$$
+也可以使用期望表示出来：
+$$
+D(X) = E(X^2) - E(X)^2
+$$
+考虑两个随机变量之和的方差可以写成：
+$$
+D(X + Y) = D(X) + D(Y) + 2\mathrm{Cov}(X,Y)
+$$
+方差的性质：
+$$
+D(aX) = a^2D(X)
+$$
+$$
+D(X + \mathrm{const}) = D(X)
+$$
+
+#### 协方差
+
+**协方差（Covariance）** 是用来描绘多个随机变量之间的关系的统计量，数学定义是：
+$$
+\mathrm{Cov}(X,Y) = E((X-E(X))(Y-E(Y))) = \int p(x,y)(x-\langle x \rangle )(y-\langle y \rangle )\mathrm{d}x\mathrm{d}y
+$$
+可以使用期望表示出来：
+$$
+\mathrm{Cov}(X,Y) = E(XY)-E(X)E(Y)
+$$
+多个随机变量之间的协方差可以使用一个协方差矩阵表示出：
+$$
+\mathrm{Cov}(X,Y,Z) = \begin{bmatrix}
+\mathrm{Cov}(X,X) & \mathrm{Cov}(X,Y) & \mathrm{Cov}(X,Z) \\
+\mathrm{Cov}(Y,X) & \mathrm{Cov}(Y,Y) & \mathrm{Cov}(Y,Z) \\
+\mathrm{Cov}(Z,X)  & \mathrm{Cov}(Z, Y) & \mathrm{Cov}(Z, Z)
+\end{bmatrix}
+$$
+利用协方差矩阵可以看出多个随机变量之间的关系，在进行多参数线性拟合的时候可以使用主成分分析求出协方差矩阵的特征分解，可以对数据完成拟合。
