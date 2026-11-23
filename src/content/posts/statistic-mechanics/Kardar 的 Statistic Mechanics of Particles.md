@@ -229,7 +229,7 @@ $$
 
 巨势的定义是：
 $$
-\mathcal{G} = E - TS - \mathbf{\mu} \cdot \mathbf{N}
+\mathcal{G} =F - \mathbf{\mu}\cdot \mathbf{N} =  E - TS - \mathbf{\mu} \cdot \mathbf{N}
 $$
 在化学平衡中，巨势取到极小值
 $$
